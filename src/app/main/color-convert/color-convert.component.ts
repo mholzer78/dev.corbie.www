@@ -6,7 +6,6 @@ import { siteBlueprint } from '../site.blueprint';
 @Component({
   selector: 'section[colorConvert]',
   standalone: true,
-  
   imports: [ClipboardComponent],
   templateUrl: './color-convert.component.html',
   styleUrl: './color-convert.component.scss',

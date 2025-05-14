@@ -27,10 +27,22 @@ export const allPages = [
     image: 'permission',
     imageSize: iconSize,
   },
-    {
+  {
     id: 'changeCase',
     name: 'Change Case',
     image: 'changeCase',
+    imageSize: iconSize,
+  },
+  {
+    id: 'loremIpsum',
+    name: 'Lorem Ipsum',
+    image: 'loremIpsum',
+    imageSize: iconSize,
+  },
+  {
+    id: 'loremImage',
+    name: 'Lorem Image',
+    image: 'loremImage',
     imageSize: iconSize,
   },
 ];
