@@ -1,12 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { IconsComponent } from '../../shared/icons/icons.component';
 import { siteBlueprint } from '../site.blueprint';
+import { IconsComponent } from '../../shared/icons/icons.component';
+import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 
 @Component({
   selector: 'section[changeCase]',
-  imports: [FormsModule,IconsComponent],
+  standalone: true,
+  imports: [FormsModule, IconsComponent, ClipboardComponent],
   templateUrl: './change-case.component.html',
   styleUrl: './change-case.component.scss',
 })
@@ -17,13 +19,13 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
 
   ngOnInit(): void {
     let storage = this.getStorage('changeCase');
-    this.text.update(value => storage.text);
-    this.option.update(value => storage.choice);
+    this.text.update((value) => storage.text);
+    this.option.update((value) => storage.choice);
   }
 
   onChangeText(event: Event) {
     this.textOriginal = (<HTMLTextAreaElement>event.target).value;
-    this.text.update(value => this.textOriginal);
+    this.text.update((value) => this.textOriginal);
   }
   onChangeOptiuon(event: Event) {
     console.log(this.text());
@@ -55,7 +57,9 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
               (code > 47 && code < 58) || // numeric (0-9)
               (code > 64 && code < 91) || // upper alpha (A-Z)
               (code > 96 && code < 123) || // lower alpha (a-z)
-              (code > 127 && code < 155) || code == 164 || code == 165 // Umlaute etc.
+              (code > 127 && code < 155) ||
+              code == 164 ||
+              code == 165 // Umlaute etc.
             ) {
               start = i;
               break;

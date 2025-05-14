@@ -1,0 +1,25 @@
+textarea {
+  margin: -1rem;
+  padding: 1rem;
+  -moz-appearance: textfield;
+  font-family: SourceCode, monospace;
+  font-size: 1em;
+  background: none;
+  border: 0;
+  color: var(--main-fg-color);
+  caret-color: var(--main-fg-color);
+  line-height: 1.5;
+  box-shadow: none;
+  transition: border 0.25s linear, color 0.25s linear,
+    background-color 0.25s linear;
+  outline: none;
+  &:focus {
+    color: var(--sec-fg-color);
+    border-color: var(--sec-fg-color);
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

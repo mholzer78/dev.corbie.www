@@ -1,10 +1,10 @@
 <div>
   <div class="block multi">
-    <div class="colorModel">
+    <div class="box">
       <div class="title">
         <div class="inner">HEX</div>
       </div>
-      <div class="colorInteraction">
+      <div class="interaction">
         <div>
           <input type="text" maxlength="7" size="6" placeholder="000000" />
         </div>
@@ -15,11 +15,11 @@
       </div>
     </div>
 
-    <div class="colorModel">
+    <div class="box">
       <div class="title">
         <div class="inner">HEX websafe</div>
       </div>
-      <div class="colorInteraction">
+      <div class="interaction">
         <div>
           <input type="text" maxlength="7" size="6" placeholder="000000" />
         </div>
@@ -32,11 +32,11 @@
   </div>
 
   <div class="block multi">
-    <div class="colorModel">
+    <div class="box">
       <div class="title">
         <div class="inner">RGB</div>
       </div>
-      <div class="colorInteraction">
+      <div class="interaction">
         <div>
           <input type="text" maxlength="100" size="11" placeholder="0,0,0" />
         </div>
@@ -47,11 +47,11 @@
       </div>
     </div>
 
-    <div class="colorModel">
+    <div class="box">
       <div class="title">
         <div class="inner">RGB websafe</div>
       </div>
-      <div class="colorInteraction">
+      <div class="interaction">
         <div>
           <input type="text" maxlength="100" size="11" placeholder="0,0,0" />
         </div>
@@ -63,62 +63,137 @@
     </div>
   </div>
 
-
-  <div class="block colorModel">
-    <div class="title">
-      <div class="inner">CMYK</div>
-    </div>
-    <div class="colorInteraction">
-      <div>
-        <label for="cmyk-c">C:</label>
-        <input id="cmyk-c" type="number" min="0" max="100" size="3" placeholder="0">%
-        <label for="cmyk-m">M:</label>
-        <input id="cmyk-m" type="number" min="0" max="100" size="3" placeholder="0">%
-        <label for="cmyk-y">Y:</label>
-        <input id="cmyk-y" type="number" min="0" max="100" size="3" placeholder="0">%
-        <label for="cmyk-k">K:</label>
-        <input id="cmyk-k" type="number" min="0" max="100" size="3" placeholder="0">%
+  <div class="block">
+    <div class="box">
+      <div class="title">
+        <div class="inner">CMYK</div>
       </div>
-      <div>
-        <input type="color" id="head" name="head" value="#444444" />
+      <div class="interaction">
+        <div>
+          <label for="cmyk-c">C:</label>
+          <input
+            id="cmyk-c"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+          <label for="cmyk-m">M:</label>
+          <input
+            id="cmyk-m"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+          <label for="cmyk-y">Y:</label>
+          <input
+            id="cmyk-y"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+          <label for="cmyk-k">K:</label>
+          <input
+            id="cmyk-k"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+        </div>
+        <div>
+          <input type="color" id="head" name="head" value="#444444" />
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="block colorModel">
-    <div class="title">
-      <div class="inner">HSV</div>
-    </div>
-    <div class="colorInteraction">
-      <div>
-        <label for="hsv-h">H:</label>
-        <input id="hsv-h" type="number" min="0" max="360" size="3" placeholder="0">°
-        <label for="hsv-s">S:</label>
-        <input id="hsv-s" type="number" min="0" max="100" size="3" placeholder="0">%
-        <label for="hsv-v">V:</label>
-        <input id="hsv-v" type="number" min="0" max="100" size="3" placeholder="0">%
+  <div class="block">
+    <div class="box">
+      <div class="title">
+        <div class="inner">HSV</div>
       </div>
-      <div>
-        <input type="color" id="head" name="head" value="#444444" />
+      <div class="interaction">
+        <div>
+          <label for="hsv-h">H:</label>
+          <input
+            id="hsv-h"
+            type="number"
+            min="0"
+            max="360"
+            size="3"
+            placeholder="0"
+          />°
+          <label for="hsv-s">S:</label>
+          <input
+            id="hsv-s"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+          <label for="hsv-v">V:</label>
+          <input
+            id="hsv-v"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+        </div>
+        <div>
+          <input type="color" id="head" name="head" value="#444444" />
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="block colorModel">
-    <div class="title">
-      <div class="inner">HSL</div>
-    </div>
-    <div class="colorInteraction">
-      <div>
-        <label for="hsl-h">H:</label>
-        <input id="hsl-h" type="number" min="0" max="360" size="3" placeholder="0">°
-        <label for="hsl-s">S:</label>
-        <input id="hsl-s" type="number" min="0" max="100" size="3" placeholder="0">%
-        <label for="hsl-l">L:</label>
-        <input id="hsl-l" type="number" min="0" max="100" size="3" placeholder="0">%
+  <div class="block">
+    <div class="box">
+      <div class="title">
+        <div class="inner">HSL</div>
       </div>
-      <div>
-        <input type="color" id="head" name="head" value="#444444" />
+      <div class="interaction">
+        <div>
+          <label for="hsl-h">H:</label>
+          <input
+            id="hsl-h"
+            type="number"
+            min="0"
+            max="360"
+            size="3"
+            placeholder="0"
+          />°
+          <label for="hsl-s">S:</label>
+          <input
+            id="hsl-s"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+          <label for="hsl-l">L:</label>
+          <input
+            id="hsl-l"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+          />%
+        </div>
+        <div>
+          <input type="color" id="head" name="head" value="#444444" />
+        </div>
       </div>
     </div>
   </div>

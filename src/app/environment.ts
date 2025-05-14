@@ -29,7 +29,7 @@ export const allPages = [
   },
     {
     id: 'changeCase',
-    name: 'Change Case *',
+    name: 'Change Case',
     image: 'changeCase',
     imageSize: iconSize,
   },

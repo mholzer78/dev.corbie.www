@@ -1,0 +1,11 @@
+input[type="radio"] {
+  display: none;
+}
+
+label.radio {
+  display: flex;
+  align-items: flex-start;
+  app-icons {
+    margin-right: 0.5em;
+  }
+}

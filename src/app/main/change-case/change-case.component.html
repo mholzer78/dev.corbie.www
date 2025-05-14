@@ -1,10 +1,10 @@
 <div>
   <div class="block multi">
-    <div class="changeCaseModel">
+    <div class="box auto">
       <div class="title">
         <div class="inner">Input</div>
       </div>
-      <div class="changeCaseInteraction">
+      <div class="interaction">
         <textarea
           id="text"
           name="text"
@@ -14,14 +14,15 @@
           [value]="text()"
           (change)="onChangeText($event)"
         ></textarea>
+        <app-clipboard [value]="text()" />
       </div>
     </div>
 
-    <div class="changeCaseModel">
+    <div class="box auto">
       <div class="title">
         <div class="inner">Change To</div>
       </div>
-      <div class="changeCaseInteraction">
+      <div class="interaction">
         <div>
           <input
             id="keep"
@@ -31,7 +32,7 @@
             value="keep"
             (change)="onChangeOptiuon($event)"
           />
-          <label for="keep">
+          <label class="radio" for="keep">
             @if (option() === 'keep') {
             <app-icons image="radioRound" width="30" height="30" />
             } @else {
@@ -49,7 +50,7 @@
             [checked]="option() === 'lower'"
             (change)="onChangeOptiuon($event)"
           />
-          <label for="lower">
+          <label class="radio" for="lower">
             @if (option() === 'lower') {
             <app-icons image="radioRound" width="30" height="30" />
             } @else {
@@ -67,7 +68,7 @@
             [checked]="option() === 'upper'"
             (change)="onChangeOptiuon($event)"
           />
-          <label for="upper">
+          <label class="radio" for="upper">
             @if (option() === 'upper') {
             <app-icons image="radioRound" width="30" height="30" />
             } @else {
@@ -85,7 +86,7 @@
             [checked]="option() === 'capWord'"
             (change)="onChangeOptiuon($event)"
           />
-          <label for="capWord">
+          <label class="radio" for="capWord">
             @if (option() === 'capWord') {
             <app-icons image="radioRound" width="30" height="30" />
             } @else {
@@ -103,7 +104,7 @@
             [checked]="option() === 'capSentence'"
             (change)="onChangeOptiuon($event)"
           />
-          <label for="capSentence">
+          <label class="radio" for="capSentence">
             @if (option() === 'capSentence') {
             <app-icons image="radioRound" width="30" height="30" />
             } @else {

@@ -18,6 +18,7 @@ const characters = [
 
 @Component({
   selector: 'section[passwordGenerator]',
+  standalone: true,
   imports: [FormsModule, ClipboardComponent, IconsComponent],
   templateUrl: './password-generator.component.html',
   styleUrl: './password-generator.component.scss',

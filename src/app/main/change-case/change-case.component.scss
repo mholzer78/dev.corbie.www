@@ -1,78 +1,9 @@
-div.block {
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-  &.multi {
-    display: flex;
-    margin-inline: -1rem;
-    > div {
-      margin-inline: 1rem;
-      &:first-child {
-        flex-grow: 5;
-      }
-      &:last-child {
-        flex-grow: 1;
-      }
-    }
-  }
-}
-div.changeCaseModel {
-  padding: 1rem;
-  border: 1px solid var(--main-fg-color);
-  border-radius: 1rem;
-  .title {
-    display: flex;
-    margin-top: -2.1em;
-    .inner {
-      padding: 0.5em 1em;
+@import '../../../scss/input.textarea.scss';
+@import '../../../scss/input.radio.scss';
 
-      border: 1px solid var(--main-fg-color);
-      border-radius: 1rem;
-      background: var(--main-bg-color);
-    }
+div.box {
+  width: auto;
+  .interaction {
+    display: block;
   }
-  .changeCaseInteraction {
-    padding-top: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-
-    label {
-      display: flex;
-      align-items: center;
-    }
-    app-icons {
-      margin-right: 1em;
-    }
-  }
-}
-
-textarea {
-  margin: -1rem;
-  padding: 1rem;
-  -moz-appearance: textfield;
-  font-family: SourceCode, monospace;
-  font-size: 1em;
-  background: none;
-  border: 0;
-  color: var(--main-fg-color);
-  caret-color: var(--main-fg-color);
-  line-height: 1.5;
-  box-shadow: none;
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
-  outline: none;
-  &:focus {
-    color: var(--sec-fg-color);
-    border-color: var(--sec-fg-color);
-  }
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}
-
-input[type="radio"] {
-  display: none;
 }

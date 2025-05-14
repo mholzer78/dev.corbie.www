@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-icons',
+  standalone: true,
   imports: [],
   templateUrl: './icons.component.svg',
   styleUrl: './icons.component.scss'

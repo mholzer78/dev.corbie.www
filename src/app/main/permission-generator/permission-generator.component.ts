@@ -45,6 +45,7 @@ const convert = [
 
 @Component({
   selector: 'section[permissionGenerator]',
+  standalone: true,
   imports: [IconsComponent, FormsModule],
   templateUrl: './permission-generator.component.html',
   styleUrl: './permission-generator.component.scss',

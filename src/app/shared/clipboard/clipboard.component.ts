@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-clipboard',
+  standalone: true,
   imports: [],
   templateUrl: './clipboard.component.html',
   styleUrl: './clipboard.component.scss',
@@ -13,7 +14,7 @@ export class ClipboardComponent {
 
   copyToClipboard() {
     let inputEl = document.getElementById('clipboardInput') as HTMLInputElement;
-    
+
     inputEl.value = this.value();
     inputEl.select();
     inputEl.setSelectionRange(0, 99999);
