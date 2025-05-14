@@ -1,0 +1,15 @@
+<a href="#{{ item.id }}">
+  @if (item.id === 'home') {
+  <img
+    src="assets/{{ item.image }}.svg"
+    alt="{{ item.id }}"
+    width="{{ item.imageSize }}"
+  />
+  } @else {
+    <app-icons [image]="item.image" [width]="item.imageSize" [height]="item.imageSize" />
+  } @if (showText) {
+  <span>
+    {{ item.name }}
+  </span>
+  }
+</a>

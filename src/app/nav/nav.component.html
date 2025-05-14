@@ -1,0 +1,17 @@
+<ul>
+  @for (page of pages; track page.id) {
+  <li
+    navItem
+    [item]="page"
+    [showText]="showText"
+    [class.active]="activePage().id === page.id"
+  ></li>
+  }
+</ul>
+<div id="navToggle" [class.collapsed]="showText" (click)="toggleNav()">
+  <app-icons image="toggle" width="25" height="20" />
+</div>
+
+<div id="colorToggle" (click)="toggleColor()">
+  <app-icons image="dayNight" width="40" height="40" />
+</div>

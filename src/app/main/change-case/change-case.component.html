@@ -1,0 +1,117 @@
+<div>
+  <div class="block multi">
+    <div class="changeCaseModel">
+      <div class="title">
+        <div class="inner">Input</div>
+      </div>
+      <div class="changeCaseInteraction">
+        <textarea
+          id="text"
+          name="text"
+          placeholder="Please enter the text you wanna transform!"
+          rows="6"
+          cols="50"
+          [value]="text()"
+          (change)="onChangeText($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="changeCaseModel">
+      <div class="title">
+        <div class="inner">Change To</div>
+      </div>
+      <div class="changeCaseInteraction">
+        <div>
+          <input
+            id="keep"
+            data-index="0"
+            type="radio"
+            name="changeCase"
+            value="keep"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label for="keep">
+            @if (option() === 'keep') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } keep as is</label
+          >
+        </div>
+        <div>
+          <input
+            id="lower"
+            data-index="0"
+            type="radio"
+            name="changeCase"
+            value="lower"
+            [checked]="option() === 'lower'"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label for="lower">
+            @if (option() === 'lower') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } all lower case</label
+          >
+        </div>
+        <div>
+          <input
+            id="upper"
+            data-index="0"
+            type="radio"
+            name="changeCase"
+            value="upper"
+            [checked]="option() === 'upper'"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label for="upper">
+            @if (option() === 'upper') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } all UPPER case</label
+          >
+        </div>
+        <div>
+          <input
+            id="capWord"
+            data-index="0"
+            type="radio"
+            name="changeCase"
+            value="capWord"
+            [checked]="option() === 'capWord'"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label for="capWord">
+            @if (option() === 'capWord') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } Capitalize (Word)</label
+          >
+        </div>
+        <div>
+          <input
+            id="capSentence"
+            data-index="0"
+            type="radio"
+            name="changeCase"
+            value="capSentence"
+            [checked]="option() === 'capSentence'"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label for="capSentence">
+            @if (option() === 'capSentence') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } Capitalize (Sentence)</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div>
+  <div class="block">
+    <div class="permissionModel">
+      <div class="title">
+        <div class="inner">Permissions</div>
+      </div>
+      <div class="permissionInteraction">
+        <div class="item"></div>
+        <div class="item">Owner</div>
+        <div class="item">Group</div>
+        <div class="item">Public</div>
+        <div class="break"></div>
+        <div class="item">Read</div>
+        @for (item of permBool(); track $index) {
+        <div class="item">
+          <input
+            id="item{{ $index }}"
+            [attr.data-index]="$index"
+            type="checkbox"
+            [value]="item"
+            (click)="onChangeBool($event)"
+          />
+          <label for="item{{ $index }}">
+            @if (item) {
+            <app-icons image="checkboxRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            }
+          </label>
+        </div>
+        @if (($index+1) % 3 === 0) {
+        <div class="break"></div>
+        } @if ($index+1 === 3) {
+        <div class="item">Write</div>
+        } @if ($index+1 === 6) {
+        <div class="item">Execute</div>
+        } }
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="permissionModel">
+      <div class="title">
+        <div class="inner">Numeric / Symbolic</div>
+      </div>
+      <div class="permissionInteraction">
+        <input type="text" maxlength="3" size="3" [(ngModel)]="permNumber" (ngModelChange)="onChangeNumber($event)" (focusout)="inputCleanup($event)">
+        &nbsp;&nbsp;&nbsp;
+        <input type="text" maxlength="10" size="10" [(ngModel)]="permChar" (ngModelChange)="onChangeChar($event)" (focusout)="inputCleanup($event)">
+      </div>
+    </div>
+  </div>
+</div>

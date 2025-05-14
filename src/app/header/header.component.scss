@@ -1,0 +1,32 @@
+:host {
+  position: fixed;
+  display: flex;
+  width: 100dvw;
+  background: var(--sec-bg-color);
+}
+
+h1 {
+  margin: auto;
+  padding: 0.25em 1em;
+  background: var(--main-bg-color);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+div {
+  &.bg {
+    display: flex;
+    flex-grow: 10;
+    background: var(--main-bg-color);
+  }
+  &.fg {
+    width: 100%;
+    background: var(--sec-bg-color);
+    &.left {
+      border-bottom-right-radius: 0.5em;
+    }
+    &.right {
+      border-bottom-left-radius: 0.5em;
+    }
+  }
+}
