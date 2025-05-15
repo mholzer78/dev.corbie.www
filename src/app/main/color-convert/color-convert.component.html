@@ -6,11 +6,11 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="7" size="6" placeholder="000000" />
+          <input type="text" maxlength="7" size="6" placeholder="000000" [value]="colorHEX()" />
         </div>
         <div>
           <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" value="#444444" />
+          <input type="color" id="head" name="head" [value]="colorPicker()" />
         </div>
       </div>
     </div>
@@ -38,11 +38,11 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="100" size="11" placeholder="0,0,0" />
+          <input type="text" maxlength="100" size="11" placeholder="0,0,0" [value]="colorRGB()" />
         </div>
         <div>
           <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" value="#444444" />
+          <input type="color" id="head" name="head" [value]="colorPicker()" />
         </div>
       </div>
     </div>

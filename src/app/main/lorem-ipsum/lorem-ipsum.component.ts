@@ -1,14 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { siteBlueprint } from '../site.blueprint';
+import { IconsComponent } from '../../shared/icons/icons.component';
+import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
+
+const loremText =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 @Component({
   selector: 'section[loremIpsum]',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, IconsComponent, ClipboardComponent],
   templateUrl: './lorem-ipsum.component.html',
-  styleUrl: './lorem-ipsum.component.scss'
+  styleUrl: './lorem-ipsum.component.scss',
 })
 export class LoremIpsumComponent extends siteBlueprint implements OnInit {
+  length = signal(0);
+  option = signal('');
+  text = computed(() => this.changeText());
+
   ngOnInit(): void {
+    let storage = this.getStorage('loremIpsum');
+    this.length.update((value) => storage.length);
+    this.option.update((value) => storage.choice);
+  }
+
+  onChangeOptiuon(event: Event) {
+    this.option.update((value) => (event.target as HTMLInputElement).value);
+  }
+
+  changeText() {
+    let tempText = '';
+    let tempArray = [];
+    switch (this.option()) {
+      case 'letters':
+        tempText = loremText;
+        while (tempText.length < this.length()) {
+          tempText += ' ' + loremText;
+        }
+        return tempText.substring(0, this.length());
+      case 'words':
+        tempArray = loremText.split(' ');
+        while (tempArray.length < this.length()) {
+          tempArray = tempArray.concat(loremText.split(' '));
+        }
+        tempArray.splice(this.length());
+        return tempArray.join(' ');
+      //        return this.text().toUpperCase();
+      default:
+        for (let i = 1; i <= this.length(); i++) {
+          tempText += loremText;
+          if (i !== this.length()) {
+            tempText += '\n\n';
+          }
+        }
+        return tempText;
+    }
   }
 }

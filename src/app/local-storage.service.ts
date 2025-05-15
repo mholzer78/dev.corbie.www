@@ -21,7 +21,7 @@ export class LocalStorageService {
       chars: [true, true, true, false, false], // the fifth is a dummy to manage the regenerate
     },
     permission: { bool: [true, true, false, true, true, false, true, false, false] },
-    changeCase: { text: 'something', choice: 'keep' },
+    changeCase: { text: 'something', choice: 'lower' },
     loremIpsum: { length: 2, choice: 'paragraphs' },
     loremImage: { color: '255, 216, 1', width: 400, height: 200 },
   };

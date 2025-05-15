@@ -19,6 +19,7 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
 
   ngOnInit(): void {
     let storage = this.getStorage('changeCase');
+    this.textOriginal = storage.text;
     this.text.update((value) => storage.text);
     this.option.update((value) => storage.choice);
   }
@@ -26,29 +27,28 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
   onChangeText(event: Event) {
     this.textOriginal = (<HTMLTextAreaElement>event.target).value;
     this.text.update((value) => this.textOriginal);
+    this.option.update(value => 'keep');
   }
   onChangeOptiuon(event: Event) {
-    console.log(this.text());
-    let newValue = (event.target as HTMLInputElement).value;
-    this.option.update((value) => newValue);
-    this.text.update((value) => this.changeText(this.text(), newValue));
+    this.option.update((value) => (event.target as HTMLInputElement).value);
+    this.text.update((value) => this.changeText());
   }
 
-  changeText(text: string, option: string) {
-    switch (option) {
+  changeText() {
+    switch (this.option()) {
       case 'lower':
-        return text.toLowerCase();
+        return this.text().toLowerCase();
       case 'upper':
-        return text.toUpperCase();
+        return this.text().toUpperCase();
       case 'capWord':
-        let words = text.toLowerCase().split(' ');
+        let words = this.text().toLowerCase().split(' ');
         words.forEach((word, index) => {
           words[index] =
             [...word][0].toUpperCase() + [...word].slice(1).join('');
         });
         return words.join(' ');
       case 'capSentence':
-        let sentences = text.toLowerCase().split(/[.,;:!?]/);
+        let sentences = this.text().toLowerCase().split(/[.,;:!?]/);
         sentences.forEach((sentence, index) => {
           let start = -1;
           for (let i = 0; i < sentence.length; i++) {

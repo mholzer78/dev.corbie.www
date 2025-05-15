@@ -13,7 +13,7 @@ export class ClipboardComponent {
   failure = false;
 
   copyToClipboard() {
-    let inputEl = document.getElementById('clipboardInput') as HTMLInputElement;
+    let inputEl = document.getElementById('clipboardInput') as HTMLTextAreaElement;
 
     inputEl.value = this.value();
     inputEl.select();

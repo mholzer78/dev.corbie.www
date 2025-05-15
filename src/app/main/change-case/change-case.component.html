@@ -9,7 +9,7 @@
           id="text"
           name="text"
           placeholder="Please enter the text you wanna transform!"
-          rows="6"
+          rows="15"
           cols="50"
           [value]="text()"
           (change)="onChangeText($event)"
@@ -47,7 +47,6 @@
             type="radio"
             name="changeCase"
             value="lower"
-            [checked]="option() === 'lower'"
             (change)="onChangeOptiuon($event)"
           />
           <label class="radio" for="lower">
@@ -65,7 +64,6 @@
             type="radio"
             name="changeCase"
             value="upper"
-            [checked]="option() === 'upper'"
             (change)="onChangeOptiuon($event)"
           />
           <label class="radio" for="upper">
@@ -83,7 +81,6 @@
             type="radio"
             name="changeCase"
             value="capWord"
-            [checked]="option() === 'capWord'"
             (change)="onChangeOptiuon($event)"
           />
           <label class="radio" for="capWord">
@@ -101,7 +98,6 @@
             type="radio"
             name="changeCase"
             value="capSentence"
-            [checked]="option() === 'capSentence'"
             (change)="onChangeOptiuon($event)"
           />
           <label class="radio" for="capSentence">

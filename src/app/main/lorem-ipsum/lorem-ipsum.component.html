@@ -1,1 +1,89 @@
-<p>lorem-ipsum works!</p>
+<div>
+  <div class="block multi">
+    <div class="box auto">
+      <div class="title">
+        <div class="inner">Text</div>
+      </div>
+      <div class="interaction">
+        <textarea
+          id="text"
+          name="text"
+          placeholder="Please enter the text you wanna transform!"
+          rows="20"
+          cols="75"
+          [value]="text()"
+          disabled
+        ></textarea>
+        <app-clipboard [value]="text()" />
+      </div>
+    </div>
+
+    <div class="box auto">
+      <div class="title">
+        <div class="inner">Options</div>
+      </div>
+      <div class="interaction">
+        <div>
+          <input
+            id="length"
+            type="number"
+            maxlength="2"
+            size="2"
+            placeholder="0"
+            min="1" max="99"
+            [(ngModel)]="length"
+          />
+          <label for="length">Amount</label>
+        </div>
+        <div>
+          <input
+            id="letters"
+            type="radio"
+            name="loremIpsum"
+            value="letters"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label class="radio" for="letters">
+            @if (option() === 'letters') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } Letters</label
+          >
+        </div>
+        <div>
+          <input
+            id="words"
+            type="radio"
+            name="loremIpsum"
+            value="words"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label class="radio" for="words">
+            @if (option() === 'words') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } Words</label
+          >
+        </div>
+        <div>
+          <input
+            id="paragraphs"
+            type="radio"
+            name="loremIpsum"
+            value="paragraphs"
+            (change)="onChangeOptiuon($event)"
+          />
+          <label class="radio" for="paragraphs">
+            @if (option() === 'paragraphs') {
+            <app-icons image="radioRound" width="30" height="30" />
+            } @else {
+            <app-icons image="roundEmpty" width="30" height="30" />
+            } Paragraphs</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
