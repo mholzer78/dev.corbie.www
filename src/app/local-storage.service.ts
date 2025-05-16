@@ -1,4 +1,3 @@
-import { NonNullAssert } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 interface Storage {
@@ -15,7 +14,8 @@ interface Storage {
 })
 export class LocalStorageService {
   private storage: Storage = {
-    color: { master: [255, 216, 1]},
+    color: { master: [0, 191, 255]},
+//    color: { master: [255, 216, 1]},
     password: {
       length: 16,
       chars: [true, true, true, false, false], // the fifth is a dummy to manage the regenerate

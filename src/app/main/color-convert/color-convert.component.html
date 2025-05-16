@@ -6,11 +6,18 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="7" size="6" placeholder="000000" [value]="colorHEX()" />
+          <input
+            #inputHEX
+            type="text"
+            maxlength="7"
+            size="6"
+            placeholder="000000"
+            [value]="colorHEX()"
+          />
         </div>
         <div>
-          <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" [value]="colorPicker()" />
+          <app-clipboard [value]="'#' + inputHEX.value" />
+          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>
@@ -21,11 +28,11 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="7" size="6" placeholder="000000" />
+          <input #inputHEXWeb type="text" maxlength="7" size="6" placeholder="000000" [value]="colorHEXWeb()" />
         </div>
         <div>
-          <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" value="#444444" />
+          <app-clipboard [value]="'#' + inputHEXWeb.value" />
+          <app-color-picker [(color)]="colorPickerWeb" />
         </div>
       </div>
     </div>
@@ -38,11 +45,18 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="100" size="11" placeholder="0,0,0" [value]="colorRGB()" />
+          <input
+            #inputRGB
+            type="text"
+            maxlength="100"
+            size="11"
+            placeholder="0,0,0"
+            [value]="colorRGB()"
+          />
         </div>
         <div>
-          <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" [value]="colorPicker()" />
+          <app-clipboard [value]="'rgba(' + inputRGB.value + ',1)'" />
+          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>
@@ -53,11 +67,11 @@
       </div>
       <div class="interaction">
         <div>
-          <input type="text" maxlength="100" size="11" placeholder="0,0,0" />
+          <input #inputRGBWeb type="text" maxlength="100" size="11" placeholder="0,0,0" [value]="colorRGBWeb()"/>
         </div>
         <div>
-          <app-clipboard value="TBD" />
-          <input type="color" id="head" name="head" value="#444444" />
+          <app-clipboard [value]="'rgba(' + inputRGBWeb.value + ',1)'" />
+          <app-color-picker [(color)]="colorPickerWeb" />
         </div>
       </div>
     </div>
@@ -78,6 +92,7 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorCMYK()[0]"
           />%
           <label for="cmyk-m">M:</label>
           <input
@@ -87,6 +102,7 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorCMYK()[1]"
           />%
           <label for="cmyk-y">Y:</label>
           <input
@@ -96,6 +112,7 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorCMYK()[2]"
           />%
           <label for="cmyk-k">K:</label>
           <input
@@ -105,10 +122,11 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorCMYK()[3]"
           />%
         </div>
         <div>
-          <input type="color" id="head" name="head" value="#444444" />
+          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>
@@ -129,6 +147,7 @@
             max="360"
             size="3"
             placeholder="0"
+            [value]="colorHSV()[0]"
           />°
           <label for="hsv-s">S:</label>
           <input
@@ -138,6 +157,7 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorHSV()[1]"
           />%
           <label for="hsv-v">V:</label>
           <input
@@ -147,10 +167,11 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorHSV()[2]"
           />%
         </div>
         <div>
-          <input type="color" id="head" name="head" value="#444444" />
+          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>
@@ -171,6 +192,7 @@
             max="360"
             size="3"
             placeholder="0"
+            [value]="colorHSL()[0]"
           />°
           <label for="hsl-s">S:</label>
           <input
@@ -180,6 +202,7 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorHSL()[1]"
           />%
           <label for="hsl-l">L:</label>
           <input
@@ -189,10 +212,11 @@
             max="100"
             size="3"
             placeholder="0"
+            [value]="colorHSL()[2]"
           />%
         </div>
         <div>
-          <input type="color" id="head" name="head" value="#444444" />
+          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>
