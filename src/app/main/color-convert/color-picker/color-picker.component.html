@@ -1,1 +1,1 @@
-<input type="color" id="colorPicker" name="colorPicker" [value]="color()" (change)="updateColor($event)"/>
+<input type="color" id="colorPicker" name="colorPicker" [value]="color()" (change)="updateColor($event)" [disabled]="disabled() == 'true'"/>

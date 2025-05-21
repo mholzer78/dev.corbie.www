@@ -11,11 +11,13 @@ body.bright {
   --sec-fg-color: #222222;
 }
 
+@import 'scss/fonts.scss';
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: monospace;
+  font-family: SourceSans, sans-serif;
 }
 body {
   color: var( --main-fg-color);
@@ -23,14 +25,14 @@ body {
 }
 
 section {
-    width: 100dvw;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    > div {
-      min-width: 40vw;
-    }
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    min-width: 50vw;
+  }
 }
 
 @import 'scss/page.scss';

@@ -1,15 +1,19 @@
-import { Component, model } from '@angular/core';
+import { Component, input, model, OnInit, output } from '@angular/core';
 
 @Component({
   selector: 'app-color-picker',
+  standalone: true,
   imports: [],
   templateUrl: './color-picker.component.html',
   styleUrl: './color-picker.component.scss',
 })
 export class ColorPickerComponent {
   color = model<string>('#000000');
+  changeColor = output<string>();
 
+  disabled = input();
+  
   updateColor(event: Event) {
-    this.color.update((value) => (event.target as HTMLInputElement).value);
+    this.changeColor.emit((event.target as HTMLInputElement).value);
   }
 }

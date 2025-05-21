@@ -22,12 +22,12 @@ export class LoremIpsumComponent extends siteBlueprint implements OnInit {
 
   ngOnInit(): void {
     let storage = this.getStorage('loremIpsum');
-    this.length.update((value) => storage.length);
-    this.option.update((value) => storage.choice);
+    this.length.set(storage.length);
+    this.option.set(storage.choice);
   }
 
   onChangeOptiuon(event: Event) {
-    this.option.update((value) => (event.target as HTMLInputElement).value);
+    this.option.set((event.target as HTMLInputElement).value);
   }
 
   changeText() {

@@ -35,8 +35,8 @@ export class PasswordGeneratorComponent
 
   ngOnInit(): void {
     let storage = this.getStorage('password');
-    this.length.update((value) => storage.length);
-    this.char.update((value) => storage.chars);
+    this.length.set(storage.length);
+    this.char.set(storage.chars);
   }
 
   changeValue(event: Event) {
@@ -44,7 +44,7 @@ export class PasswordGeneratorComponent
     let index = (event.target as HTMLInputElement).dataset['index'];
     let tempChar = this.char();
     tempChar[+index!] = value !== 'true';
-    this.char.update((values) => [...tempChar]);
+    this.char.set([...tempChar]);
   }
 
   generateString() {

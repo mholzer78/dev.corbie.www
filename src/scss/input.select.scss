@@ -1,14 +1,11 @@
-input[type="text"],
-input[type="number"] {
-  appearance: textfield;
-  font-family: SourceCode, monospace;
+select {
   font-size: 1em;
   background: none;
   border: 0;
   border-bottom: 2px solid var(--main-fg-color);
   color: var(--main-fg-color);
-  caret-color: var(--main-fg-color);
   line-height: 1.5;
+  cursor: pointer;
   box-shadow: none;
   transition: border 0.25s linear, color 0.25s linear,
     background-color 0.25s linear;
@@ -18,12 +15,17 @@ input[type="number"] {
     color: var(--sec-fg-color);
     border-color: var(--sec-fg-color);
   }
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+}
+
+option {
+  background: var(--main-bg-color);
+  color: var(--main-fg-color);
+  &:checked {
+    background: var(--sec-bg-color);
+    color: var(--sec-fg-color);
   }
-  &:disabled {
-    border-style: dashed;
+  &:hover,
+  &:focus {
+    background: var(--sec-bg-color);
   }
 }

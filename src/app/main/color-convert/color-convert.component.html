@@ -13,26 +13,38 @@
             size="6"
             placeholder="000000"
             [value]="colorHEX()"
+            (input)="changeColorHandler(inputHEX.value, 'HEX')"
           />
         </div>
         <div>
           <app-clipboard [value]="'#' + inputHEX.value" />
-          <app-color-picker [(color)]="colorPicker" />
+          <app-color-picker
+            [(color)]="colorPicker"
+            (changeColor)="changeColorHandler($event)"
+          />
         </div>
       </div>
     </div>
 
     <div class="box">
       <div class="title">
-        <div class="inner">HEX websafe</div>
+        <div class="inner">closest HEX websafe</div>
       </div>
       <div class="interaction">
         <div>
-          <input #inputHEXWeb type="text" maxlength="7" size="6" placeholder="000000" [value]="colorHEXWeb()" />
+          <input
+            #inputHEXWeb
+            type="text"
+            maxlength="7"
+            size="6"
+            placeholder="000000"
+            [value]="colorHEXWeb()"
+            disabled
+          />
         </div>
         <div>
           <app-clipboard [value]="'#' + inputHEXWeb.value" />
-          <app-color-picker [(color)]="colorPickerWeb" />
+          <app-color-picker [(color)]="colorPickerWeb" disabled="true" />
         </div>
       </div>
     </div>
@@ -52,26 +64,214 @@
             size="11"
             placeholder="0,0,0"
             [value]="colorRGB()"
+            (input)="changeColorHandler(inputRGB.value, 'RGB')"
           />
         </div>
         <div>
           <app-clipboard [value]="'rgba(' + inputRGB.value + ',1)'" />
-          <app-color-picker [(color)]="colorPicker" />
+          <app-color-picker
+            [(color)]="colorPicker"
+            (changeColor)="changeColorHandler($event)"
+          />
         </div>
       </div>
     </div>
 
     <div class="box">
       <div class="title">
-        <div class="inner">RGB websafe</div>
+        <div class="inner">closest RGB websafe</div>
       </div>
       <div class="interaction">
         <div>
-          <input #inputRGBWeb type="text" maxlength="100" size="11" placeholder="0,0,0" [value]="colorRGBWeb()"/>
+          <input
+            #inputRGBWeb
+            type="text"
+            maxlength="100"
+            size="11"
+            placeholder="0,0,0"
+            [value]="colorRGBWeb()"
+            disabled
+          />
         </div>
         <div>
           <app-clipboard [value]="'rgba(' + inputRGBWeb.value + ',1)'" />
-          <app-color-picker [(color)]="colorPickerWeb" />
+          <app-color-picker [(color)]="colorPickerWeb" disabled="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block multi">
+    <div class="box">
+      <div class="title">
+        <div class="inner">Color Name</div>
+      </div>
+      <div class="interaction">
+        <div>
+          <select
+            #inputName
+            class="corbieSelect"
+            [(ngModel)]="colorName"
+            (ngModelChange)="changeColorHandler($event)"
+          >
+            <option [value]="'default'" disabled>no name</option>
+            @for (name of names; track $index) {
+            <option [value]="codes[$index]">
+              <span>{{ name }}</span>
+            </option>
+            }
+          </select>
+        </div>
+        <app-clipboard [value]="names[codes.indexOf(inputName.value)]" />
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="title">
+        <div class="inner">HWB</div>
+      </div>
+      <div class="interaction">
+        <div>
+          <input
+            #inputHWB
+            type="text"
+            maxlength="100"
+            size="11"
+            placeholder="0,0,0"
+            [value]="colorHWB()"
+            (input)="changeColorHandler(inputHWB.value, 'HWB')"
+          />
+        </div>
+        <div>
+          <app-clipboard [value]="'hwb(' + inputHWB.value +')'" />
+          <app-color-picker
+            [(color)]="colorPicker"
+            (changeColor)="changeColorHandler($event)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block multi">
+    <div class="box">
+      <div class="title">
+        <div class="inner">HSV (HSB)</div>
+      </div>
+      <div class="interaction">
+        <div>
+          <label for="hsv-h">H:</label>
+          <input
+            #inputHSVh
+            id="hsv-h"
+            type="number"
+            min="0"
+            max="360"
+            size="3"
+            placeholder="0"
+            [value]="colorHSV()[0]"
+            (input)="
+              changeColorHandler(
+                inputHSVh.value + ',' + inputHSVs.value + ',' + inputHSVv.value,
+                'HSV'
+              )
+            "
+          />°
+          <label for="hsv-s">S:</label>
+          <input
+            #inputHSVs
+            id="hsv-s"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+            [value]="colorHSV()[1]"
+            (input)="
+              changeColorHandler(
+                inputHSVh.value + ',' + inputHSVs.value + ',' + inputHSVv.value,
+                'HSV'
+              )
+            "
+          />%
+          <label for="hsv-v">V:</label>
+          <input
+            #inputHSVv
+            id="hsv-v"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+            [value]="colorHSV()[2]"
+            (input)="
+              changeColorHandler(
+                inputHSVh.value + ',' + inputHSVs.value + ',' + inputHSVv.value,
+                'HSV'
+              )
+            "
+          />%
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="title">
+        <div class="inner">HSL</div>
+      </div>
+      <div class="interaction">
+        <div>
+          <label for="hsl-h">H:</label>
+          <input
+            #inputHSLh
+            id="hsl-h"
+            type="number"
+            min="0"
+            max="360"
+            size="3"
+            placeholder="0"
+            [value]="colorHSL()[0]"
+            (input)="
+              changeColorHandler(
+                inputHSLh.value + ',' + inputHSLs.value + ',' + inputHSLl.value,
+                'HSL'
+              )
+            "
+          />°
+          <label for="hsl-s">S:</label>
+          <input
+            #inputHSLs
+            id="hsl-s"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+            [value]="colorHSL()[1]"
+            (input)="
+              changeColorHandler(
+                inputHSLh.value + ',' + inputHSLs.value + ',' + inputHSLl.value,
+                'HSL'
+              )
+            "
+          />%
+          <label for="hsl-l">L:</label>
+          <input
+            #inputHSLl
+            id="hsl-l"
+            type="number"
+            min="0"
+            max="100"
+            size="3"
+            placeholder="0"
+            [value]="colorHSL()[2]"
+            (input)="
+              changeColorHandler(
+                inputHSLh.value + ',' + inputHSLs.value + ',' + inputHSLl.value,
+                'HSL'
+              )
+            "
+          />%
         </div>
       </div>
     </div>
@@ -86,6 +286,7 @@
         <div>
           <label for="cmyk-c">C:</label>
           <input
+            #inputCMYKc
             id="cmyk-c"
             type="number"
             min="0"
@@ -93,9 +294,22 @@
             size="3"
             placeholder="0"
             [value]="colorCMYK()[0]"
+            (input)="
+              changeColorHandler(
+                inputCMYKc.value +
+                  ',' +
+                  inputCMYKm.value +
+                  ',' +
+                  inputCMYKy.value +
+                  ',' +
+                  inputCMYKk.value,
+                'CMYK'
+              )
+            "
           />%
           <label for="cmyk-m">M:</label>
           <input
+            #inputCMYKm
             id="cmyk-m"
             type="number"
             min="0"
@@ -103,9 +317,22 @@
             size="3"
             placeholder="0"
             [value]="colorCMYK()[1]"
+            (input)="
+              changeColorHandler(
+                inputCMYKc.value +
+                  ',' +
+                  inputCMYKm.value +
+                  ',' +
+                  inputCMYKy.value +
+                  ',' +
+                  inputCMYKk.value,
+                'CMYK'
+              )
+            "
           />%
           <label for="cmyk-y">Y:</label>
           <input
+            #inputCMYKy
             id="cmyk-y"
             type="number"
             min="0"
@@ -113,9 +340,22 @@
             size="3"
             placeholder="0"
             [value]="colorCMYK()[2]"
+            (input)="
+              changeColorHandler(
+                inputCMYKc.value +
+                  ',' +
+                  inputCMYKm.value +
+                  ',' +
+                  inputCMYKy.value +
+                  ',' +
+                  inputCMYKk.value,
+                'CMYK'
+              )
+            "
           />%
           <label for="cmyk-k">K:</label>
           <input
+            #inputCMYKk
             id="cmyk-k"
             type="number"
             min="0"
@@ -123,100 +363,19 @@
             size="3"
             placeholder="0"
             [value]="colorCMYK()[3]"
+            (input)="
+              changeColorHandler(
+                inputCMYKc.value +
+                  ',' +
+                  inputCMYKm.value +
+                  ',' +
+                  inputCMYKy.value +
+                  ',' +
+                  inputCMYKk.value,
+                'CMYK'
+              )
+            "
           />%
-        </div>
-        <div>
-          <app-color-picker [(color)]="colorPicker" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="box">
-      <div class="title">
-        <div class="inner">HSV</div>
-      </div>
-      <div class="interaction">
-        <div>
-          <label for="hsv-h">H:</label>
-          <input
-            id="hsv-h"
-            type="number"
-            min="0"
-            max="360"
-            size="3"
-            placeholder="0"
-            [value]="colorHSV()[0]"
-          />°
-          <label for="hsv-s">S:</label>
-          <input
-            id="hsv-s"
-            type="number"
-            min="0"
-            max="100"
-            size="3"
-            placeholder="0"
-            [value]="colorHSV()[1]"
-          />%
-          <label for="hsv-v">V:</label>
-          <input
-            id="hsv-v"
-            type="number"
-            min="0"
-            max="100"
-            size="3"
-            placeholder="0"
-            [value]="colorHSV()[2]"
-          />%
-        </div>
-        <div>
-          <app-color-picker [(color)]="colorPicker" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="box">
-      <div class="title">
-        <div class="inner">HSL</div>
-      </div>
-      <div class="interaction">
-        <div>
-          <label for="hsl-h">H:</label>
-          <input
-            id="hsl-h"
-            type="number"
-            min="0"
-            max="360"
-            size="3"
-            placeholder="0"
-            [value]="colorHSL()[0]"
-          />°
-          <label for="hsl-s">S:</label>
-          <input
-            id="hsl-s"
-            type="number"
-            min="0"
-            max="100"
-            size="3"
-            placeholder="0"
-            [value]="colorHSL()[1]"
-          />%
-          <label for="hsl-l">L:</label>
-          <input
-            id="hsl-l"
-            type="number"
-            min="0"
-            max="100"
-            size="3"
-            placeholder="0"
-            [value]="colorHSL()[2]"
-          />%
-        </div>
-        <div>
-          <app-color-picker [(color)]="colorPicker" />
         </div>
       </div>
     </div>

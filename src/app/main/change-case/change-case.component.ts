@@ -20,18 +20,18 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
   ngOnInit(): void {
     let storage = this.getStorage('changeCase');
     this.textOriginal = storage.text;
-    this.text.update((value) => storage.text);
-    this.option.update((value) => storage.choice);
+    this.text.set(storage.text);
+    this.option.set(storage.choice);
   }
 
   onChangeText(event: Event) {
     this.textOriginal = (<HTMLTextAreaElement>event.target).value;
-    this.text.update((value) => this.textOriginal);
-    this.option.update(value => 'keep');
+    this.text.set(this.textOriginal);
+    this.option.set('keep');
   }
   onChangeOptiuon(event: Event) {
-    this.option.update((value) => (event.target as HTMLInputElement).value);
-    this.text.update((value) => this.changeText());
+    this.option.set((event.target as HTMLInputElement).value);
+    this.text.set(this.changeText());
   }
 
   changeText() {

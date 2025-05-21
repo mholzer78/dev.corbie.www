@@ -14,14 +14,13 @@ interface Storage {
 })
 export class LocalStorageService {
   private storage: Storage = {
-    color: { master: [0, 191, 255]},
-//    color: { master: [255, 216, 1]},
+    color: { master: [255, 216, 1]},
     password: {
       length: 16,
       chars: [true, true, true, false, false], // the fifth is a dummy to manage the regenerate
     },
     permission: { bool: [true, true, false, true, true, false, true, false, false] },
-    changeCase: { text: 'something', choice: 'lower' },
+    changeCase: { text: '', choice: 'keep' },
     loremIpsum: { length: 2, choice: 'paragraphs' },
     loremImage: { color: '255, 216, 1', width: 400, height: 200 },
   };

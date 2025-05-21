@@ -60,7 +60,7 @@ export class PermissionGeneratorComponent
 
   ngOnInit(): void {
     let storage = this.getStorage('permission');
-    this.permBool.update((value) => storage.bool);
+    this.permBool.set(storage.bool);
     this.changePermChar();
     this.changePermNumber();
   }
@@ -70,7 +70,7 @@ export class PermissionGeneratorComponent
     let index = (event.target as HTMLInputElement).dataset['index'];
     let tempArray = this.permBool();
     tempArray[+index!] = value !== 'true';
-    this.permBool.update((values) => [...tempArray]);
+    this.permBool.set([...tempArray]);
     this.changePermChar();
     this.changePermNumber();
   }
@@ -86,7 +86,7 @@ export class PermissionGeneratorComponent
         tempArray[index] = false;
       }
     });
-    this.permBool.update((value) => tempArray);
+    this.permBool.set(tempArray);
     this.changePermChar();
   }
 
@@ -102,7 +102,7 @@ export class PermissionGeneratorComponent
     value.forEach((char, index) => {
       tempArray[index] = char !== '-';
     });
-    this.permBool.update((value) => tempArray);
+    this.permBool.set(tempArray);
     this.changePermNumber();
   }
 
@@ -120,7 +120,7 @@ export class PermissionGeneratorComponent
         tempChar += convert[index].char;
       }
     });
-    this.permChar.update((value) => tempChar);
+    this.permChar.set(tempChar);
   }
 
   changePermNumber() {
@@ -131,8 +131,7 @@ export class PermissionGeneratorComponent
       }
     });
     let tempString = '000' + tempNumber;
-    this.permNumber.update((value) =>
-      tempString.substring(tempString.length - 3)
+    this.permNumber.set(tempString.substring(tempString.length - 3)
     );
   }
 }
