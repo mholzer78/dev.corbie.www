@@ -1,59 +1,120 @@
-# Codecorbie
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a id="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
-## Development server
 
-To start a local development server, run:
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+<!--
+[![project_license][license-shield]][license-url]
+-->
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/mholzer78/codecorbie">
+    <img src="public/assets/corbie.svg" alt="Logo" width="80" height="80">
+  </a>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+<h3 align="center">codecorbie.com</h3>
 
-```bash
-ng generate component component-name
-```
+  <p align="center">
+    developers best buddy
+  </p>
+</div>
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-## Running unit tests
+[![Product Name Screen Shot][product-screenshot]](https://codecorbie.com)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Some smart words TBD
 
-```bash
-ng test
-```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Running end-to-end tests
+### Built With
 
-For end-to-end (e2e) testing, run:
+[![Angular][Angular.io]][Angular-url]
 
-```bash
-ng e2e
-```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+<!-- CONTACT -->
+## Contact
 
-## Additional Resources
+Michael Holzer - [@linkedin_handle][linkedin-url] - michael@die-holzers.at
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Project Link: [https://github.com/mholzer78/codecorbie](https://github.com/mholzer78/codecorbie)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/mholzer78/codecorbie.svg?style=for-the-badge
+[contributors-url]: https://github.com/mholzer78
+[forks-shield]: https://img.shields.io/github/forks/mholzer78/codecorbie.svg?style=for-the-badge
+[forks-url]: https://github.com/mholzer78/codecorbie/network/members
+[stars-shield]: https://img.shields.io/github/stars/mholzer78/codecorbie.svg?style=for-the-badge
+[stars-url]: https://github.com/mholzer78/codecorbie/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mholzer78/codecorbie.svg?style=for-the-badge
+[issues-url]: https://github.com/mholzer78/codecorbie/issues
+[license-shield]: https://img.shields.io/github/license/mholzer78/codecorbie.svg?style=for-the-badge
+[license-url]: https://github.com/mholzer78/codecorbie/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/mholzer78/
+[product-screenshot]: public/assets/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 

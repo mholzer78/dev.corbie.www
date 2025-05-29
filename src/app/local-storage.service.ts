@@ -22,7 +22,7 @@ export class LocalStorageService {
     permission: { bool: [true, true, false, true, true, false, true, false, false] },
     changeCase: { text: '', choice: 'keep' },
     loremIpsum: { length: 2, choice: 'paragraphs' },
-    loremImage: { color: '255, 216, 1', width: 400, height: 200 },
+    loremImage: { color: '#ffd801', width: 400, height: 200 },
   };
   
   constructor() {

@@ -1,0 +1,14 @@
+@import "../../../scss/input.text.scss";
+@import "../../../scss/input.range.scss";
+@import "../../../scss/input.color.scss";
+
+div.box {
+  width: auto;
+  .interaction {
+    display: block;
+    div {
+        display: flex;
+        align-items: center;
+    }
+  }
+}

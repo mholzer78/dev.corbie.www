@@ -1,1 +1,85 @@
-<p>lorem-image works!</p>
+<div class="row">
+  <div class="column auto">
+    <div class="box auto">
+      <div class="title">
+        <div class="inner">Preview</div>
+      </div>
+      <div class="interaction">
+        <div class="imagePreview">
+          <canvas
+            id="canvasPreview"
+            width="400"
+            height="200"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column auto">
+    <div class="box auto">
+      <div class="title">
+        <div class="inner">Options</div>
+      </div>
+      <div class="interaction">
+        <div class="mb5">
+          <label for="colorPicker">Color</label>
+          <input
+            type="color"
+            id="colorPicker"
+            name="colorPicker"
+            [(ngModel)]="color"
+            (change)="updateCanvas()"
+          />
+        </div>
+        <div class="mb5">
+          <label>Width:</label>
+          <input
+            type="number"
+            maxlength="3"
+            size="3"
+            placeholder="0"
+            min="100"
+            max="3840"
+            [(ngModel)]="width"
+            (change)="updateCanvas()"
+          />
+        </div>
+        <div class="mb5">
+          <input
+            type="range"
+            min="100"
+            max="3840"
+            class="slider"
+            id="width"
+            [(ngModel)]="width"
+            (change)="updateCanvas()"
+          />
+        </div>
+        <div class="mb5">
+          <label>Height:</label>
+          <input
+            type="number"
+            maxlength="3"
+            size="3"
+            placeholder="0"
+            min="100"
+            max="2160"
+            [(ngModel)]="height"
+            (change)="updateCanvas()"
+          />
+        </div>
+        <div class="mb5">
+          <input
+            type="range"
+            min="100"
+            max="2160"
+            class="slider"
+            id="height"
+            [(ngModel)]="height"
+            (change)="updateCanvas()"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

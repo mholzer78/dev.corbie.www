@@ -1,9 +1,15 @@
-@import '../../../scss/input.textarea.scss';
-@import '../../../scss/input.radio.scss';
+@import "../../../scss/input.textarea.scss";
+@import "../../../scss/input.radio.scss";
 
 div.box {
   width: auto;
   .interaction {
     display: block;
+    textarea {
+      font-size: 0.75em;
+    }
+    app-clipboard {
+      margin-left: -1em;
+    }
   }
 }

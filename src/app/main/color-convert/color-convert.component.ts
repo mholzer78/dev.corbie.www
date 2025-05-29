@@ -138,7 +138,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit {
         break;
       }
       case 'RGB': {
-        let rgbStringArray = newColor.split(',');
+        let rgbStringArray = newColor.replaceAll(/[^0-9,]/g,'').split(',');
         let rgbNumberArray: number[] = [];
         let valid = true;
         if (rgbStringArray.length >= 3 && rgbStringArray[2] !== '') {

@@ -1,6 +1,10 @@
 @import '../../../scss/input.text.scss';
 @import '../../../scss/input.checkbox.scss';
 
+:host {
+  width: 30dvw;
+}
+
 div.box {
   .interaction {
     flex-flow: row wrap;

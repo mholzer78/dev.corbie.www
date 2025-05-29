@@ -1,5 +1,5 @@
-<div>
-  <div class="block multi">
+<div class="row">
+  <div class="column auto">
     <div class="box auto">
       <div class="title">
         <div class="inner">Input</div>
@@ -10,14 +10,14 @@
           name="text"
           placeholder="Please enter the text you wanna transform!"
           rows="15"
-          cols="50"
+          cols="65"
           [value]="text()"
           (change)="onChangeText($event)"
         ></textarea>
-        <app-clipboard [value]="text()" />
       </div>
     </div>
-
+  </div>
+  <div class="column auto">
     <div class="box auto">
       <div class="title">
         <div class="inner">Change To</div>
@@ -109,6 +109,7 @@
           >
         </div>
       </div>
+      <app-clipboard [value]="text()" />
     </div>
   </div>
 </div>

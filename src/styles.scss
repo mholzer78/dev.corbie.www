@@ -24,15 +24,4 @@ body {
   background: var( --main-bg-color);
 }
 
-section {
-  width: 100dvw;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  > div {
-    min-width: 50vw;
-  }
-}
-
 @import 'scss/page.scss';

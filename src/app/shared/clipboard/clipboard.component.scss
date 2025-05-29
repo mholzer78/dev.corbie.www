@@ -4,12 +4,11 @@ $fgNOK: rgba(204, 51, 51, 1);
 $bgNOK: rgba(204, 51, 51, 0.2);
 
 :host {
+  display: flex;
+  justify-content: end;
   cursor: pointer;
 }
 
-svg {
-  margin-left: 1em;
-}
 #clipboardInput {
   display: none;
 }

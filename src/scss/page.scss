@@ -1,22 +1,40 @@
+.ml5 {
+  margin-left: 0.5rem;
+}
 .mb5 {
   margin-bottom: 0.5rem;
 }
-div.block {
-  &:not(:last-child) {
-    margin-bottom: 2rem;
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+section {
+  width: 60dvw;
+  height: 100dvh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  flex: 100%;
+  max-width: 100%;
+  margin: auto;
+  &.half {
+    flex: 50%;
   }
-  &.multi {
-    display: flex;
-    margin-inline: -1rem;
-    > div {
-      margin-inline: 1rem;
-      &:not(.auto) {
-        width: 50%;
-      }
-    }
+  &.auto {
+    flex: auto;
   }
 }
-div.box {
+.box {
+  margin: 1rem;
   padding: 1em;
   border: 1px solid var(--main-fg-color);
   border-radius: 1rem;

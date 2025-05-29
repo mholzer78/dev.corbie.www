@@ -11,7 +11,7 @@ export const allPages = [
   { id: 'home', name: 'Home', image: 'corbie', imageSize: 60 },
   {
     id: 'colorConvert',
-    name: 'Color Convert *',
+    name: 'Color Convert',
     image: 'color',
     imageSize: iconSize,
   },
