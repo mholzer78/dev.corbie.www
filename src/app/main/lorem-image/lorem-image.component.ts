@@ -2,11 +2,12 @@ import { Component, computed, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { siteBlueprint } from '../site.blueprint';
+import { IconsComponent } from '../../shared/icons/icons.component';
 
 @Component({
   selector: 'section[loremImage]',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, IconsComponent],
   templateUrl: './lorem-image.component.html',
   styleUrl: './lorem-image.component.scss',
 })
@@ -30,6 +31,9 @@ export class LoremImageComponent extends siteBlueprint implements OnInit {
     let fontSize = this.width() / 20;
     if (fontSize < 20) {
       fontSize = 20;
+    }
+    if (this.height() / 4 < fontSize) {
+      fontSize = this.height() / 4;
     }
 
     var o = Math.round(
@@ -77,6 +81,32 @@ export class LoremImageComponent extends siteBlueprint implements OnInit {
       this.width() / 2,
       this.height() / 2 + fontSize
     );
+
+    // 550 x 640
+    let basis = Math.min(this.width(), this.height());
+    let ratioDiff =
+      Math.max(this.width(), this.height()) /
+      Math.min(this.width(), this.height());
+    let width = 0.055 * basis * 3;
+    if (ratioDiff > 7.5) {
+      width = Math.min(this.width(), this.height()) * 0.5;
+    }
+
+    let imgSize = {
+      width: width,
+      height: (width / 55) * 64,
+    };
+    var img = new Image();
+    img.onload = () => {
+      ctx.drawImage(
+        img,
+        this.width() - imgSize.width - 10,
+        this.height() - imgSize.height - 10,
+        imgSize.width,
+        imgSize.height
+      );
+    };
+    img.src = 'assets/corbie.svg';
   }
 
   hex2rgb(hex: string) {
@@ -84,7 +114,24 @@ export class LoremImageComponent extends siteBlueprint implements OnInit {
     var r = (hexInt >> 16) & 255;
     var g = (hexInt >> 8) & 255;
     var b = hexInt & 255;
-    console.log(hex, r, g, b);
     return [r, g, b];
+  }
+
+  download() {
+    const imageEl = document.querySelector(
+      '#canvasPreview'
+    )! as HTMLCanvasElement;
+    var linkEl = document.createElement('a');
+    linkEl.href = imageEl.toDataURL('image/png');
+    linkEl.setAttribute(
+      'download',
+      this.width().toString() +
+        'x' +
+        this.height().toString() +
+        '_' +
+        this.color().slice(1) +
+        '_codecorbie'
+    );
+    linkEl.click();
   }
 }

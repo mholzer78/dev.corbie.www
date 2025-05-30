@@ -81,7 +81,7 @@ Some smart words TBD
 
 Michael Holzer - [@linkedin_handle][linkedin-url] - michael@die-holzers.at
 
-Project Link: [https://github.com/mholzer78/codecorbie](https://github.com/mholzer78/codecorbie)
+Project Link: [https://codecorbie.com](https://codecorbie.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

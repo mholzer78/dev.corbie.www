@@ -180,7 +180,6 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit {
         let valid = true;
         tempStringArray.forEach((item, index) => {
           tempNumberArray.push(parseInt(item));
-          console.log(item);
           if (
             item == '' ||
             parseInt(item) < 0 ||
@@ -193,7 +192,6 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit {
         if (valid) {
           switch (origin) {
             case 'HWB':
-              console.log(tempNumberArray,this.colorConvertService.hwb2rgb(tempNumberArray));
               this.master.set(
                 this.colorConvertService.hwb2rgb(tempNumberArray)
               );

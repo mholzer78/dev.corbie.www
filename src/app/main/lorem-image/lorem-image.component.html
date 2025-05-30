@@ -1,16 +1,13 @@
 <div class="row">
   <div class="column auto">
-    <div class="box auto">
+    <div class="box preview">
       <div class="title">
         <div class="inner">Preview</div>
       </div>
       <div class="interaction">
         <div class="imagePreview">
-          <canvas
-            id="canvasPreview"
-            width="400"
-            height="200"
-          ></canvas>
+          <canvas id="canvasPreview" width="400" height="200"></canvas>
+          <img src="/assets/corbie.svg" id="corbie" />
         </div>
       </div>
     </div>
@@ -22,7 +19,17 @@
       </div>
       <div class="interaction">
         <div class="mb5">
-          <label for="colorPicker">Color</label>
+          <label for="inputHEX">Color: </label>
+          <input
+            id="inputHEX"
+            #inputHEX
+            type="text"
+            maxlength="7"
+            size="7"
+            placeholder="#000000"
+            [(ngModel)]="color"
+            (change)="updateCanvas()"
+          />
           <input
             type="color"
             id="colorPicker"
@@ -32,8 +39,9 @@
           />
         </div>
         <div class="mb5">
-          <label>Width:</label>
+          <label for="inputWidth">Width:</label>
           <input
+            id="inputWidth"
             type="number"
             maxlength="3"
             size="3"
@@ -46,6 +54,7 @@
         </div>
         <div class="mb5">
           <input
+            id="sliderWidth"
             type="range"
             min="100"
             max="3840"
@@ -56,8 +65,9 @@
           />
         </div>
         <div class="mb5">
-          <label>Height:</label>
+          <label for="inputHeight">Height:</label>
           <input
+            id="inputHeight"
             type="number"
             maxlength="3"
             size="3"
@@ -70,6 +80,7 @@
         </div>
         <div class="mb5">
           <input
+            id="sliderHeight"
             type="range"
             min="100"
             max="2160"
@@ -78,6 +89,10 @@
             [(ngModel)]="height"
             (change)="updateCanvas()"
           />
+        </div>
+        <div class="iconWrapper mb5 link" (click)="download()">
+          Download:
+          <app-icons image="download" width="40" height="40" />
         </div>
       </div>
     </div>

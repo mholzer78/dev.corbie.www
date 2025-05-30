@@ -41,7 +41,7 @@ export const allPages = [
   },
   {
     id: 'loremImage',
-    name: 'Lorem Image *',
+    name: 'Lorem Image',
     image: 'loremImage',
     imageSize: iconSize,
   },
