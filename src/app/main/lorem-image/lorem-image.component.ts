@@ -13,17 +13,28 @@ import { IconsComponent } from '../../shared/icons/icons.component';
 })
 export class LoremImageComponent extends siteBlueprint implements OnInit {
   color = signal('#000000');
+  colorPicker = signal('#000000');
   width = signal(400);
   height = signal(200);
 
   ngOnInit(): void {
     let storage = this.getStorage('loremImage');
     this.color.set(storage.color);
+    this.colorPicker.set(storage.color);
     this.width.set(storage.width.toString());
     this.height.set(storage.height.toString());
     this.updateCanvas();
-  }
+  }  
 
+  changeColorHandler(event: Event): void {
+    let newColor = (event.target as HTMLInputElement).value
+    let regex = /^#[0-9A-F]{6}$/i;
+    if (regex.test(newColor)) {
+      this.color.set(newColor);
+      this.colorPicker.set((event.target as HTMLInputElement).value);
+      this.updateCanvas();
+    }
+  }
   updateCanvas() {
     let colorArray = this.hex2rgb(this.color());
     let textColor = 'black';

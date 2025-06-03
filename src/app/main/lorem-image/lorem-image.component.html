@@ -27,15 +27,15 @@
             maxlength="7"
             size="7"
             placeholder="#000000"
-            [(ngModel)]="color"
-            (change)="updateCanvas()"
+            [value]="color()"
+            (change)="changeColorHandler($event)"
           />
           <input
             type="color"
             id="colorPicker"
             name="colorPicker"
-            [(ngModel)]="color"
-            (change)="updateCanvas()"
+            [value]="colorPicker()"
+            (change)="changeColorHandler($event)"
           />
         </div>
         <div class="mb5">
