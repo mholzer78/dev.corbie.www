@@ -59,7 +59,6 @@ export class LocalStorageService {
       | 'loremImage',
     value: object
   ) {
-    console.log(key);
     let tempStorage = { ...this.storage };
     tempStorage[key] = value;
     this.storage = tempStorage;

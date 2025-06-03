@@ -56,7 +56,6 @@ export class ChangeCaseComponent
       case 'lower':
         return this.text().toLowerCase();
       case 'upper':
-        console.log('upper');
         return this.text().toUpperCase();
       case 'capWord':
         let words = this.text().toLowerCase().split(' ');
