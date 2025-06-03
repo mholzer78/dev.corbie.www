@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { siteBlueprint } from '../site.blueprint';
@@ -12,7 +12,10 @@ import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
   templateUrl: './change-case.component.html',
   styleUrl: './change-case.component.scss',
 })
-export class ChangeCaseComponent extends siteBlueprint implements OnInit {
+export class ChangeCaseComponent
+  extends siteBlueprint
+  implements OnInit, OnDestroy
+{
   textOriginal = '';
   text = signal('');
   option = signal('');
@@ -22,16 +25,30 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
     this.textOriginal = storage.text;
     this.text.set(storage.text);
     this.option.set(storage.choice);
+    this.text.set(this.changeText());
+  }
+
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('changeCase', {
+      text: this.textOriginal,
+      choice: this.option(),
+    });
   }
 
   onChangeText(event: Event) {
     this.textOriginal = (<HTMLTextAreaElement>event.target).value;
     this.text.set(this.textOriginal);
     this.option.set('keep');
+    this.store2storage();
   }
   onChangeOptiuon(event: Event) {
     this.option.set((event.target as HTMLInputElement).value);
     this.text.set(this.changeText());
+    this.store2storage();
   }
 
   changeText() {
@@ -39,6 +56,7 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
       case 'lower':
         return this.text().toLowerCase();
       case 'upper':
+        console.log('upper');
         return this.text().toUpperCase();
       case 'capWord':
         let words = this.text().toLowerCase().split(' ');
@@ -48,7 +66,9 @@ export class ChangeCaseComponent extends siteBlueprint implements OnInit {
         });
         return words.join(' ');
       case 'capSentence':
-        let sentences = this.text().toLowerCase().split(/[.,;:!?]/);
+        let sentences = this.text()
+          .toLowerCase()
+          .split(/[.,;:!?]/);
         sentences.forEach((sentence, index) => {
           let start = -1;
           for (let i = 0; i < sentence.length; i++) {

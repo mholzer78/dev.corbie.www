@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { siteBlueprint } from '../site.blueprint';
@@ -15,7 +15,7 @@ const loremText =
   templateUrl: './lorem-ipsum.component.html',
   styleUrl: './lorem-ipsum.component.scss',
 })
-export class LoremIpsumComponent extends siteBlueprint implements OnInit {
+export class LoremIpsumComponent extends siteBlueprint implements OnInit, OnDestroy {
   length = signal(0);
   option = signal('');
   text = computed(() => this.changeText());
@@ -26,11 +26,23 @@ export class LoremIpsumComponent extends siteBlueprint implements OnInit {
     this.option.set(storage.choice);
   }
 
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('loremIpsum', {
+      length: this.length(),
+      choice: this.option(),
+    });
+  }
+
   onChangeOptiuon(event: Event) {
     this.option.set((event.target as HTMLInputElement).value);
   }
-
+  
   changeText() {
+    this.store2storage();
     let tempText = '';
     let tempArray = [];
     switch (this.option()) {

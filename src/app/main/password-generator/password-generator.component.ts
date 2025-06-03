@@ -1,9 +1,4 @@
-import {
-  Component,
-  computed,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { IconsComponent } from '../../shared/icons/icons.component';
@@ -25,18 +20,26 @@ const characters = [
 })
 export class PasswordGeneratorComponent
   extends siteBlueprint
-  implements OnInit
+  implements OnInit, OnDestroy
 {
   length = signal(0);
   char = signal(new Array<boolean>(5));
   showClear = false;
   passwordMasked = computed(() => '•'.repeat(this.length()));
   passwordClear = computed(() => this.generateString());
-
+  
   ngOnInit(): void {
     let storage = this.getStorage('password');
     this.length.set(storage.length);
     this.char.set(storage.chars);
+  }
+
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('password', {length: this.length(), chars: this.char()});
   }
 
   changeValue(event: Event) {
@@ -48,6 +51,7 @@ export class PasswordGeneratorComponent
   }
 
   generateString() {
+    this.store2storage();
     let threshold = '';
     let result = '';
 

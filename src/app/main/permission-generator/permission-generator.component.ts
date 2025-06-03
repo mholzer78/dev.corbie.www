@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { IconsComponent } from '../../shared/icons/icons.component';
@@ -52,17 +52,25 @@ const convert = [
 })
 export class PermissionGeneratorComponent
   extends siteBlueprint
-  implements OnInit
+  implements OnInit, OnDestroy
 {
   permBool = signal(new Array<boolean>(9));
   permChar = signal('');
   permNumber = signal('');
-
+  
   ngOnInit(): void {
     let storage = this.getStorage('permission');
     this.permBool.set(storage.bool);
     this.changePermChar();
     this.changePermNumber();
+  }
+
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('permission', {bool: this.permBool()});
   }
 
   onChangeBool(event: Event) {
@@ -73,6 +81,7 @@ export class PermissionGeneratorComponent
     this.permBool.set([...tempArray]);
     this.changePermChar();
     this.changePermNumber();
+    this.store2storage();
   }
 
   onChangeNumber(event: string) {

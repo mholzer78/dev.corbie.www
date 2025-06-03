@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { siteBlueprint } from '../site.blueprint';
@@ -11,7 +11,10 @@ import { IconsComponent } from '../../shared/icons/icons.component';
   templateUrl: './lorem-image.component.html',
   styleUrl: './lorem-image.component.scss',
 })
-export class LoremImageComponent extends siteBlueprint implements OnInit {
+export class LoremImageComponent
+  extends siteBlueprint
+  implements OnInit, OnDestroy
+{
   color = signal('#000000');
   colorPicker = signal('#000000');
   width = signal(400);
@@ -24,10 +27,22 @@ export class LoremImageComponent extends siteBlueprint implements OnInit {
     this.width.set(storage.width.toString());
     this.height.set(storage.height.toString());
     this.updateCanvas();
-  }  
+  }
+
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('loremImage', {
+      color: this.color(),
+      width: this.width(),
+      height: this.height(),
+    });
+  }
 
   changeColorHandler(event: Event): void {
-    let newColor = (event.target as HTMLInputElement).value
+    let newColor = (event.target as HTMLInputElement).value;
     let regex = /^#[0-9A-F]{6}$/i;
     if (regex.test(newColor)) {
       this.color.set(newColor);
@@ -36,6 +51,7 @@ export class LoremImageComponent extends siteBlueprint implements OnInit {
     }
   }
   updateCanvas() {
+    this.store2storage();
     let colorArray = this.hex2rgb(this.color());
     let textColor = 'black';
 

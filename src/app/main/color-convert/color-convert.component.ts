@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { siteBlueprint } from '../site.blueprint';
@@ -14,7 +14,7 @@ import { ColorConvertService } from './color-convert.service';
   templateUrl: './color-convert.component.html',
   styleUrl: './color-convert.component.scss',
 })
-export class ColorConvertComponent extends siteBlueprint implements OnInit {
+export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDestroy {
   private colorConvertService = inject(ColorConvertService);
   master = signal(new Array<number>(3));
   names = this.colorConvertService.names;
@@ -38,7 +38,15 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit {
     this.master2all();
   }
 
+  ngOnDestroy(): void {
+    this.store2storage();
+  }
+
+  store2storage() {
+    this.setStorage('color', {master: this.master()});
+  }
   master2all(exception?: string) {
+    this.store2storage();
     if (exception !== 'HEX') {
       this.colorHEX.set(this.colorConvertService.rgb2hex(this.master()));
     }
