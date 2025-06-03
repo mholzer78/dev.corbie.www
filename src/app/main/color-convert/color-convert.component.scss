@@ -1,8 +1,10 @@
-@import "../../../scss/input.text.scss";
-@import "../../../scss/input.select.scss";
+@use "../../../scss/input";
+
+@include input.text;
+@include input.select;
 
 :host {
-  width: 45dvw;
+  width: 55dvw;
 }
 
 div.box {

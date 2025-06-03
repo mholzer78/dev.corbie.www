@@ -1,3 +1,7 @@
+@use 'scss/fonts';
+@use 'scss/page';
+
+
 body {
   --main-bg-color: #37474f;
   --sec-bg-color: #222222;
@@ -11,7 +15,7 @@ body.bright {
   --sec-fg-color: #222222;
 }
 
-@import 'scss/fonts.scss';
+@include fonts.faces;
 
 html,
 body {
@@ -24,4 +28,5 @@ body {
   background: var( --main-bg-color);
 }
 
-@import 'scss/page.scss';
+@include page.spacer;
+@include page.layout;

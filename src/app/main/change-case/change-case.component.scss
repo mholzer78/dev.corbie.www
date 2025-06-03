@@ -1,5 +1,7 @@
-@import "../../../scss/input.textarea.scss";
-@import "../../../scss/input.radio.scss";
+@use "../../../scss/input";
+
+@include input.textarea;
+@include input.radio;
 
 div.box {
   width: auto;

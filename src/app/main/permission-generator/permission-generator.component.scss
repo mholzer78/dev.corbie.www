@@ -1,5 +1,7 @@
-@import '../../../scss/input.text.scss';
-@import '../../../scss/input.checkbox.scss';
+@use "../../../scss/input";
+
+@include input.text;
+@include input.checkbox;
 
 :host {
   width: 30dvw;

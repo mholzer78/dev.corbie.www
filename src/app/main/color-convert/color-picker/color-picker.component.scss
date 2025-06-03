@@ -1,1 +1,3 @@
-@import "../../../../scss/input.color.scss";
+@use "../../../../scss/input";
+
+@include input.color;
