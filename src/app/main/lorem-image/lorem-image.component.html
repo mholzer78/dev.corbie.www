@@ -7,7 +7,6 @@
       <div class="interaction">
         <div class="imagePreview">
           <canvas id="canvasPreview" width="400" height="200"></canvas>
-          <img src="/assets/corbie.svg" id="corbie" />
         </div>
       </div>
     </div>
@@ -90,7 +89,7 @@
             (change)="updateCanvas()"
           />
         </div>
-        <div class="iconWrapper mb5 link" (click)="download()">
+        <div class="iconWrapper mb5 link" (keypress)="download()" (click)="download()">
           Download:
           <app-icons image="download" width="40" height="40" />
         </div>

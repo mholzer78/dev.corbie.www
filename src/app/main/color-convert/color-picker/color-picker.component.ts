@@ -1,4 +1,4 @@
-import { Component, input, model, OnInit, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'app-color-picker',
@@ -12,7 +12,7 @@ export class ColorPickerComponent {
   changeColor = output<string>();
 
   disabled = input();
-  
+
   updateColor(event: Event) {
     this.changeColor.emit((event.target as HTMLInputElement).value);
   }

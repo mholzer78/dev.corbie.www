@@ -302,17 +302,15 @@ export class ColorConvertService {
     '9acd32',
   ];
 
-  constructor() {}
-
   //HEX
   rgb2hex(rgb: number[]) {
     return rgb.map((x) => x.toString(16).padStart(2, '0')).join('');
   }
   hex2rgb(hex: string) {
-    var hexInt = parseInt(hex, 16);
-    var r = (hexInt >> 16) & 255;
-    var g = (hexInt >> 8) & 255;
-    var b = hexInt & 255;
+    let hexInt = parseInt(hex, 16);
+    let r = (hexInt >> 16) & 255;
+    let g = (hexInt >> 8) & 255;
+    let b = hexInt & 255;
     return [r, g, b];
   }
 
@@ -332,9 +330,9 @@ export class ColorConvertService {
     m = m * (1 - k) + k;
     y = y * (1 - k) + k;
 
-    var r = 1 - c;
-    var g = 1 - m;
-    var b = 1 - y;
+    let r = 1 - c;
+    let g = 1 - m;
+    let b = 1 - y;
 
     if (!normalized) {
       r = Math.round(255 * r);
