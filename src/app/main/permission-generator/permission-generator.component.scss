@@ -3,11 +3,9 @@
 @include input.text;
 @include input.checkbox;
 
-:host {
-  width: 30dvw;
-}
-
 div.box {
+  margin-inline: auto;
+  max-width: 550px;
   .interaction {
     flex-flow: row wrap;
     align-items: normal;

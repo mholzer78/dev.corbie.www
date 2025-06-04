@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../site.blueprint';
+import { siteBlueprint } from '../siteblueprint';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ColorConvertService } from './color-convert.service';
@@ -14,8 +14,11 @@ import { ColorConvertService } from './color-convert.service';
   templateUrl: './color-convert.component.html',
   styleUrl: './color-convert.component.scss',
 })
-export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDestroy {
-  private colorConvertService = inject(ColorConvertService);
+export class ColorConvertComponent
+  extends siteBlueprint
+  implements OnInit, OnDestroy
+{
+  private readonly colorConvertService = inject(ColorConvertService);
   master = signal(new Array<number>(3));
   names = this.colorConvertService.names;
   codes = this.colorConvertService.codes;
@@ -43,7 +46,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
   }
 
   store2storage() {
-    this.setStorage('color', {master: this.master()});
+    this.setStorage('color', { master: this.master() });
   }
   master2all(exception?: string) {
     this.store2storage();
@@ -146,7 +149,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
         break;
       }
       case 'RGB': {
-        let rgbStringArray = newColor.replaceAll(/[^0-9,]/g,'').split(',');
+        let rgbStringArray = newColor.replaceAll(/[^0-9,]/g, '').split(',');
         let rgbNumberArray: number[] = [];
         let valid = true;
         if (rgbStringArray.length >= 3 && rgbStringArray[2] !== '') {
@@ -171,7 +174,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
         cmykStringArray.forEach((item) => {
           cmykNumberArray.push(parseInt(item));
           if (item == '' || parseInt(item) < 0 || parseInt(item) > 100) {
-            valid = valid && false;
+            valid = false;
           }
         });
         if (valid) {
@@ -182,8 +185,8 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
       }
       case 'HWB':
       case 'HSV':
-      case 'HSL':
-        let tempStringArray = newColor.replaceAll(/[^0-9,]/g,'').split(',');
+      case 'HSL': {
+        let tempStringArray = newColor.replaceAll(/[^0-9,]/g, '').split(',');
         let tempNumberArray: number[] = [];
         let valid = true;
         tempStringArray.forEach((item, index) => {
@@ -194,7 +197,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
             (index == 0 && parseInt(item) > 360) ||
             (index > 0 && parseInt(item) > 100)
           ) {
-            valid = valid && false;
+            valid = false;
           }
         });
         if (valid) {
@@ -218,6 +221,7 @@ export class ColorConvertComponent extends siteBlueprint implements OnInit, OnDe
           return true;
         }
         break;
+      }
     }
     return false;
   }

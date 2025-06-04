@@ -1,7 +1,7 @@
-import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../site.blueprint';
+import { siteBlueprint } from '../siteblueprint';
 import { IconsComponent } from '../../shared/icons/icons.component';
 
 @Component({
@@ -53,7 +53,7 @@ export class LoremImageComponent
   updateCanvas() {
     this.store2storage();
     let colorArray = this.hex2rgb(this.color());
-    let textColor = 'black';
+    let textColor = 'white';
 
     let fontSize = this.width() / 20;
     if (fontSize < 20) {
@@ -63,13 +63,11 @@ export class LoremImageComponent
       fontSize = this.height() / 4;
     }
 
-    var o = Math.round(
+    let o = Math.round(
       (colorArray[0] * 299 + colorArray[1] * 587 + colorArray[2] * 114) / 1000
     );
     if (o > 125) {
       textColor = 'black';
-    } else {
-      textColor = 'white';
     }
 
     let canvasPreview = document.getElementById(
@@ -123,7 +121,7 @@ export class LoremImageComponent
       width: width,
       height: (width / 55) * 64,
     };
-    var img = new Image();
+    let img = new Image();
     img.onload = () => {
       ctx.drawImage(
         img,
@@ -137,10 +135,10 @@ export class LoremImageComponent
   }
 
   hex2rgb(hex: string) {
-    var hexInt = parseInt(hex.slice(1), 16);
-    var r = (hexInt >> 16) & 255;
-    var g = (hexInt >> 8) & 255;
-    var b = hexInt & 255;
+    let hexInt = parseInt(hex.slice(1), 16);
+    let r = (hexInt >> 16) & 255;
+    let g = (hexInt >> 8) & 255;
+    let b = hexInt & 255;
     return [r, g, b];
   }
 
@@ -148,7 +146,7 @@ export class LoremImageComponent
     const imageEl = document.querySelector(
       '#canvasPreview'
     )! as HTMLCanvasElement;
-    var linkEl = document.createElement('a');
+    const linkEl = document.createElement('a');
     linkEl.href = imageEl.toDataURL('image/png');
     linkEl.setAttribute(
       'download',

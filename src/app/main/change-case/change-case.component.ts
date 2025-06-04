@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../site.blueprint';
+import { siteBlueprint } from '../siteblueprint';
 import { IconsComponent } from '../../shared/icons/icons.component';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 
@@ -57,14 +57,15 @@ export class ChangeCaseComponent
         return this.text().toLowerCase();
       case 'upper':
         return this.text().toUpperCase();
-      case 'capWord':
+      case 'capWord': {
         let words = this.text().toLowerCase().split(' ');
         words.forEach((word, index) => {
           words[index] =
             [...word][0].toUpperCase() + [...word].slice(1).join('');
         });
         return words.join(' ');
-      case 'capSentence':
+      }
+      case 'capSentence': {
         let sentences = this.text()
           .toLowerCase()
           .split(/[.,;:!?]/);
@@ -92,6 +93,7 @@ export class ChangeCaseComponent
           }
         });
         return sentences.join('.');
+      }
       default:
         return this.textOriginal;
     }

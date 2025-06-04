@@ -1,3 +1,2 @@
-<nav appNav [activePage]="activePage"></nav>
-<header appHeader [(activePage)]="activePage"></header>
-<app-main [activePage]="activePage"/>
+<nav appNav (changeDesign)="changeDesign($event)"></nav>
+<router-outlet />

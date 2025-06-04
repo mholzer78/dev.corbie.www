@@ -2,8 +2,9 @@ import { inject } from '@angular/core';
 import { LocalStorageService } from '../local-storage.service';
 
 export abstract class siteBlueprint {
-  private localStorageService = inject(LocalStorageService);
-  private storageKey:
+  private readonly localStorageService = inject(LocalStorageService);
+
+  private readonly storageKey:
     | ''
     | 'color'
     | 'password'
@@ -16,7 +17,8 @@ export abstract class siteBlueprint {
     return this.localStorageService.getProp(key);
   }
   setStorage(
-    key: 'color'
+    key:
+      | 'color'
       | 'password'
       | 'permission'
       | 'changeCase'

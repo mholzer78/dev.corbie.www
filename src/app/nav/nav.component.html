@@ -1,10 +1,9 @@
 <ul>
-  @for (page of pages; track page.id) {
+  @for (page of pages; track page.title) {
   <li
     navItem
-    [item]="page"
+    [page]="page"
     [showText]="showText"
-    [class.active]="activePage().id === page.id"
   ></li>
   }
 </ul>

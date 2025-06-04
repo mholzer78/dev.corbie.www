@@ -16,15 +16,15 @@
 
 @mixin layout {
   section {
-    width: 75dvw;
     height: 100dvh;
     margin: auto;
+    background: var(--main-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .row {
+  .row.flex {
     display: flex;
     flex-wrap: wrap;
   }
@@ -47,10 +47,11 @@
     .title {
       display: flex;
       margin-top: -2.1em;
+      margin-left: calc(-1em - 1px);
       .inner {
         padding: 0.5em 1em;
         border: 1px solid var(--main-fg-color);
-        border-radius: 1rem;
+        border-radius: 1rem 1rem 1rem 0;
         background: var(--main-bg-color);
       }
     }

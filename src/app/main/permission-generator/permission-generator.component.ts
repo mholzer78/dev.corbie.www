@@ -1,8 +1,8 @@
-import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { IconsComponent } from '../../shared/icons/icons.component';
-import { siteBlueprint } from '../site.blueprint';
+import { siteBlueprint } from '../siteblueprint';
 
 const convert = [
   {
@@ -57,7 +57,7 @@ export class PermissionGeneratorComponent
   permBool = signal(new Array<boolean>(9));
   permChar = signal('');
   permNumber = signal('');
-  
+
   ngOnInit(): void {
     let storage = this.getStorage('permission');
     this.permBool.set(storage.bool);
@@ -70,7 +70,7 @@ export class PermissionGeneratorComponent
   }
 
   store2storage() {
-    this.setStorage('permission', {bool: this.permBool()});
+    this.setStorage('permission', { bool: this.permBool() });
   }
 
   onChangeBool(event: Event) {
@@ -122,7 +122,7 @@ export class PermissionGeneratorComponent
 
   changePermChar() {
     let tempChar: string = '-';
-    this.permBool().forEach((item: Boolean, index: number) => {
+    this.permBool().forEach((item: boolean, index: number) => {
       if (!item) {
         tempChar += '-';
       } else {
@@ -134,13 +134,12 @@ export class PermissionGeneratorComponent
 
   changePermNumber() {
     let tempNumber: number = 0;
-    this.permBool().forEach((item: Boolean, index: number) => {
+    this.permBool().forEach((item: boolean, index: number) => {
       if (item) {
         tempNumber += convert[index].number;
       }
     });
     let tempString = '000' + tempNumber;
-    this.permNumber.set(tempString.substring(tempString.length - 3)
-    );
+    this.permNumber.set(tempString.substring(tempString.length - 3));
   }
 }

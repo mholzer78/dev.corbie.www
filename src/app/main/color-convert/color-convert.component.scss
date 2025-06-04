@@ -3,11 +3,14 @@
 @include input.text;
 @include input.select;
 
-:host {
-  width: 50dvw;
+div.row {
+  max-width: 45dvw;
 }
-
+div.column:last-child {
+  flex: none
+}
 div.box {
+  max-width: 25dvw;
   .interaction {
     margin-top: 0;
   }

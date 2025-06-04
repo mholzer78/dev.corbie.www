@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 interface Storage {
+  main: object;
   color: any;
   password: object;
   permission: object;
@@ -14,6 +15,7 @@ interface Storage {
 })
 export class LocalStorageService {
   private storage: Storage = {
+    main: { showText: true, darkMode: true},
     color: { master: [255, 216, 1]},
     password: {
       length: 16,
@@ -35,6 +37,7 @@ export class LocalStorageService {
   getProp(
     key:
       | ''
+      | 'main'
       | 'color'
       | 'password'
       | 'permission'
@@ -51,6 +54,7 @@ export class LocalStorageService {
 
   setProp(
     key:
+      'main'
       | 'color'
       | 'password'
       | 'permission'

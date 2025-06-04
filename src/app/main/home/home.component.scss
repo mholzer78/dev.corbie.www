@@ -1,3 +1,17 @@
 .code {
+  margin: 0;
   font-family: SourceCode, monospace;
+}
+
+div.row {
+  max-width: 45dvw;
+  .box {
+    .title {
+      margin-top: -2.6em;
+    }
+    .interaction {
+      display: block;
+      font-size: 1rem;
+    }
+  }
 }

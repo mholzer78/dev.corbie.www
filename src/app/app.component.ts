@@ -1,31 +1,22 @@
-import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { allPages } from './environment';
 
 @Component({
   selector: 'app-root',
-  imports: [NavComponent, MainComponent, HeaderComponent],
+  imports: [NavComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  host: {
+    '[class.darkMode]': 'darkmode()'
+  },
 })
-export class AppComponent {
-  title = 'codecorbie';
-  activePage = allPages.filter((page) => page.id === 'home')[0];
+export class AppComponent implements OnInit {
+  test = 'darkMode'
+  darkmode = signal(true);
+  ngOnInit() {console.log("Hello CodeCorbie")}
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.setActivePage(event.urlAfterRedirects.replace('/#', ''));
-      }
-    });
-  }
-
-  setActivePage(pageId: string) {
-    this.activePage = allPages.filter((page) => page.id === pageId)[0];
+  changeDesign(value: boolean) {
+    this.darkmode.set(value);
   }
 }

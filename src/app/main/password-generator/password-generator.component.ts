@@ -2,7 +2,7 @@ import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { IconsComponent } from '../../shared/icons/icons.component';
-import { siteBlueprint } from '../site.blueprint';
+import { siteBlueprint } from '../siteblueprint';
 
 const characters = [
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -27,7 +27,7 @@ export class PasswordGeneratorComponent
   showClear = false;
   passwordMasked = computed(() => '•'.repeat(this.length()));
   passwordClear = computed(() => this.generateString());
-  
+
   ngOnInit(): void {
     let storage = this.getStorage('password');
     this.length.set(storage.length);
@@ -39,7 +39,7 @@ export class PasswordGeneratorComponent
   }
 
   store2storage() {
-    this.setStorage('password', {length: this.length(), chars: this.char()});
+    this.setStorage('password', { length: this.length(), chars: this.char() });
   }
 
   changeValue(event: Event) {
