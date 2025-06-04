@@ -8,6 +8,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './clipboard.component.scss',
 })
 export class ClipboardComponent {
+  title = input.required<string>();
   value = input.required<string>();
   success = false;
   failure = false;

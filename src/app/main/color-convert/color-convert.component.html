@@ -21,7 +21,11 @@
             [(color)]="colorPicker"
             (changeColor)="changeColorHandler($event)"
           />
-          <app-clipboard class="ml5" [value]="'#' + inputHEX.value" />
+          <app-clipboard
+            class="ml5"
+            title="Color"
+            [value]="'#' + inputHEX.value"
+          />
         </div>
       </div>
     </div>
@@ -45,7 +49,11 @@
         </div>
         <div class="flex">
           <app-color-picker [(color)]="colorPickerWeb" disabled="true" />
-          <app-clipboard class="ml5" [value]="'#' + inputHEXWeb.value" />
+          <app-clipboard
+            class="ml5"
+            title="Color"
+            [value]="'#' + inputHEXWeb.value"
+          />
         </div>
       </div>
     </div>
@@ -74,6 +82,7 @@
           />
           <app-clipboard
             class="ml5"
+            title="Color"
             [value]="'rgba(' + inputRGB.value + ',1)'"
           />
         </div>
@@ -101,6 +110,7 @@
           <app-color-picker [(color)]="colorPickerWeb" disabled="true" />
           <app-clipboard
             class="ml5"
+            title="Color"
             [value]="'rgba(' + inputRGBWeb.value + ',1)'"
           />
         </div>
@@ -130,6 +140,7 @@
         </div>
         <app-clipboard
           class="ml5"
+          title="Color"
           [value]="names[codes.indexOf(inputName.value)]"
         />
       </div>
@@ -157,7 +168,11 @@
             [(color)]="colorPicker"
             (changeColor)="changeColorHandler($event)"
           />
-          <app-clipboard class="ml5" [value]="'hwb(' + inputHWB.value + ')'" />
+          <app-clipboard
+            class="ml5"
+            title="Color"
+            [value]="'hwb(' + inputHWB.value + ')'"
+          />
         </div>
       </div>
     </div>
