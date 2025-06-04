@@ -145,7 +145,7 @@ export class LoremImageComponent
   download() {
     const imageEl = document.querySelector(
       '#canvasPreview'
-    )! as HTMLCanvasElement;
+    ) as HTMLCanvasElement;
     const linkEl = document.createElement('a');
     linkEl.href = imageEl.toDataURL('image/png');
     linkEl.setAttribute(

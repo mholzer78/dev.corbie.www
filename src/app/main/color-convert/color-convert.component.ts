@@ -123,10 +123,9 @@ export class ColorConvertComponent
 
   changeColorHandler(newColor: string): void;
   changeColorHandler(newColor: string, origin: string): void;
-  changeColorHandler(newColor: string, origin: string, subOrigin: string): void;
-  changeColorHandler(newColor: string, origin?: string, subOrigin?: string) {
+  changeColorHandler(newColor: string, origin?: string) {
     if (origin && newColor) {
-      if (this.validate(origin, newColor, subOrigin)) {
+      if (this.validate(origin, newColor)) {
         this.master2all(origin);
       } else {
         this.clearAll(origin);
@@ -138,50 +137,16 @@ export class ColorConvertComponent
     }
   }
 
-  validate(origin: string, newColor: string, subOrigin?: string) {
+  validate(origin: string, newColor: string) {
     switch (origin) {
       case 'HEX': {
-        let regex = /^[0-9A-F]{6}$/i;
-        if (regex.test(newColor)) {
-          this.master.set(this.colorConvertService.hex2rgb(newColor));
-          return true;
-        }
-        break;
+        return this.validateHEX(newColor);
       }
       case 'RGB': {
-        let rgbStringArray = newColor.replaceAll(/[^0-9,]/g, '').split(',');
-        let rgbNumberArray: number[] = [];
-        let valid = true;
-        if (rgbStringArray.length >= 3 && rgbStringArray[2] !== '') {
-          for (let i = 0; i <= 2; i++) {
-            valid =
-              valid &&
-              parseInt(rgbStringArray[i]) >= 0 &&
-              parseInt(rgbStringArray[i]) <= 255;
-            rgbNumberArray[i] = parseInt(rgbStringArray[i]);
-          }
-          if (valid) {
-            this.master.set(rgbNumberArray);
-            return true;
-          }
-        }
-        break;
+        return this.validateRGB(newColor);
       }
       case 'CMYK': {
-        let cmykStringArray = newColor.split(',');
-        let cmykNumberArray: number[] = [];
-        let valid = true;
-        cmykStringArray.forEach((item) => {
-          cmykNumberArray.push(parseInt(item));
-          if (item == '' || parseInt(item) < 0 || parseInt(item) > 100) {
-            valid = false;
-          }
-        });
-        if (valid) {
-          this.master.set(this.colorConvertService.cmyk2rgb(cmykNumberArray));
-          return true;
-        }
-        break;
+        return this.validateCMYK(newColor);
       }
       case 'HWB':
       case 'HSV':
@@ -222,6 +187,52 @@ export class ColorConvertComponent
         }
         break;
       }
+    }
+    return false;
+  }
+
+  validateHEX(newColor: string) {
+    let regex = /^[0-9A-F]{6}$/i;
+    if (regex.test(newColor)) {
+      this.master.set(this.colorConvertService.hex2rgb(newColor));
+      return true;
+    }
+    return false;
+  }
+
+  validateRGB(newColor: string) {
+    let rgbStringArray = newColor.replaceAll(/[^0-9,]/g, '').split(',');
+    let rgbNumberArray: number[] = [];
+    let valid = true;
+    if (rgbStringArray.length >= 3 && rgbStringArray[2] !== '') {
+      for (let i = 0; i <= 2; i++) {
+        valid =
+          valid &&
+          parseInt(rgbStringArray[i]) >= 0 &&
+          parseInt(rgbStringArray[i]) <= 255;
+        rgbNumberArray[i] = parseInt(rgbStringArray[i]);
+      }
+      if (valid) {
+        this.master.set(rgbNumberArray);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  validateCMYK(newColor: string) {
+    let cmykStringArray = newColor.split(',');
+    let cmykNumberArray: number[] = [];
+    let valid = true;
+    cmykStringArray.forEach((item) => {
+      cmykNumberArray.push(parseInt(item));
+      if (item == '' || parseInt(item) < 0 || parseInt(item) > 100) {
+        valid = false;
+      }
+    });
+    if (valid) {
+      this.master.set(this.colorConvertService.cmyk2rgb(cmykNumberArray));
+      return true;
     }
     return false;
   }
