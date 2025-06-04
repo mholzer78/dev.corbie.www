@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../siteblueprint';
+import { SiteBlueprint } from '../Siteblueprint';
 import { IconsComponent } from '../../shared/icons/icons.component';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 
@@ -13,7 +13,7 @@ import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
   styleUrl: './change-case.component.scss',
 })
 export class ChangeCaseComponent
-  extends siteBlueprint
+  extends SiteBlueprint
   implements OnInit, OnDestroy
 {
   textOriginal = '';

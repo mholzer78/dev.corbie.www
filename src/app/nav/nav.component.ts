@@ -13,7 +13,7 @@ import { IconsComponent } from '../shared/icons/icons.component';
 })
 export class NavComponent implements OnInit, OnDestroy{
   changeDesign = output<boolean>();
-  private localStorageService = inject(LocalStorageService);
+  private readonly localStorageService = inject(LocalStorageService);
 
   showText = true;
   darkMode = true;

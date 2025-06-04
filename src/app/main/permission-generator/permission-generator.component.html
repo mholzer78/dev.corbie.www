@@ -18,6 +18,7 @@
             [attr.data-index]="$index"
             type="checkbox"
             [value]="item"
+            (keypress)="onChangeBool($event)"
             (click)="onChangeBool($event)"
           />
           <label for="item{{ $index }}">
@@ -45,8 +46,22 @@
         <div class="inner">Numeric / Symbolic</div>
       </div>
       <div class="interaction">
-        <input type="text" maxlength="3" size="3" [(ngModel)]="permNumber" (ngModelChange)="onChangeNumber($event)" (focusout)="inputCleanup($event)">
-        <input type="text" maxlength="10" size="10" [(ngModel)]="permChar" (ngModelChange)="onChangeChar($event)" (focusout)="inputCleanup($event)">
+        <input
+          type="text"
+          maxlength="3"
+          size="3"
+          [(ngModel)]="permNumber"
+          (ngModelChange)="onChangeNumber($event)"
+          (focusout)="inputCleanup($event)"
+        />
+        <input
+          type="text"
+          maxlength="10"
+          size="10"
+          [(ngModel)]="permChar"
+          (ngModelChange)="onChangeChar($event)"
+          (focusout)="inputCleanup($event)"
+        />
       </div>
     </div>
   </div>

@@ -12,6 +12,4 @@ import { IconsComponent } from '../../shared/icons/icons.component';
 export class NavItemComponent {
   @Input() page!: any;
   @Input() showText!: boolean;
-
-  ngOnInit() {}
 }

@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../siteblueprint';
+import { SiteBlueprint } from '../Siteblueprint';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ColorConvertService } from './color-convert.service';
@@ -15,7 +15,7 @@ import { ColorConvertService } from './color-convert.service';
   styleUrl: './color-convert.component.scss',
 })
 export class ColorConvertComponent
-  extends siteBlueprint
+  extends SiteBlueprint
   implements OnInit, OnDestroy
 {
   private readonly colorConvertService = inject(ColorConvertService);

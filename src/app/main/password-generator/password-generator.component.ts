@@ -2,7 +2,7 @@ import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { IconsComponent } from '../../shared/icons/icons.component';
-import { siteBlueprint } from '../siteblueprint';
+import { SiteBlueprint } from '../Siteblueprint';
 
 const characters = [
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -19,7 +19,7 @@ const characters = [
   styleUrl: './password-generator.component.scss',
 })
 export class PasswordGeneratorComponent
-  extends siteBlueprint
+  extends SiteBlueprint
   implements OnInit, OnDestroy
 {
   length = signal(0);

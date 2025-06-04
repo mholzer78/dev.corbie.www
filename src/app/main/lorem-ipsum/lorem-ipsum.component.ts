@@ -1,7 +1,7 @@
 import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { siteBlueprint } from '../siteblueprint';
+import { SiteBlueprint } from '../Siteblueprint';
 import { IconsComponent } from '../../shared/icons/icons.component';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 
@@ -16,7 +16,7 @@ const loremText =
   styleUrl: './lorem-ipsum.component.scss',
 })
 export class LoremIpsumComponent
-  extends siteBlueprint
+  extends SiteBlueprint
   implements OnInit, OnDestroy
 {
   length = signal(0);

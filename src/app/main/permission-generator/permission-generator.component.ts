@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { IconsComponent } from '../../shared/icons/icons.component';
-import { siteBlueprint } from '../siteblueprint';
+import { SiteBlueprint } from '../Siteblueprint';
 
 const convert = [
   {
@@ -51,7 +51,7 @@ const convert = [
   styleUrl: './permission-generator.component.scss',
 })
 export class PermissionGeneratorComponent
-  extends siteBlueprint
+  extends SiteBlueprint
   implements OnInit, OnDestroy
 {
   permBool = signal(new Array<boolean>(9));

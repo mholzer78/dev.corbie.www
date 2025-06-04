@@ -28,7 +28,7 @@ export class LocalStorageService {
   };
   
   constructor() {
-    let browserStorage = localStorage.getItem('codecorbie') || null;
+    let browserStorage = localStorage.getItem('codecorbie') ?? null;
     if (browserStorage) {
       this.storage = JSON.parse(browserStorage);
     }

@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { LocalStorageService } from '../local-storage.service';
 
-export abstract class siteBlueprint {
+export abstract class SiteBlueprint {
   private readonly localStorageService = inject(LocalStorageService);
 
   private readonly storageKey:

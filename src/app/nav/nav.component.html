@@ -7,10 +7,10 @@
   ></li>
   }
 </ul>
-<div id="navToggle" [class.collapsed]="showText" (click)="toggleNav()">
+<div id="navToggle" [class.collapsed]="showText" (keypress)="toggleNav()" (click)="toggleNav()">
   <app-icons image="toggle" width="30" height="30" />
 </div>
 
-<div id="colorToggle" (click)="toggleColor()">
+<div id="colorToggle" (keypress)="toggleColor()" (click)="toggleColor()">
   <app-icons image="dayNight" width="40" height="40" />
 </div>

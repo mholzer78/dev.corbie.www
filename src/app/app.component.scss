@@ -1,8 +1,10 @@
 :host {
-      --main-bg-color: #ffffff;
+  --main-bg-color: #ffffff;
   --sec-bg-color: #dee4e7;
   --main-fg-color: #222222;
   --sec-fg-color: #222222;
+  color: var( --main-fg-color);
+  background: var( --main-bg-color);
 
 }
 :host.darkMode {
@@ -10,9 +12,4 @@
   --sec-bg-color: #222222;
   --main-fg-color: #ffffff;
   --sec-fg-color: #ffd801;
-}
-
-:host {
-  color: var( --main-fg-color);
-  background: var( --main-bg-color);
 }
