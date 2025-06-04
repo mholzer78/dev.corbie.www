@@ -5,6 +5,7 @@ import { IconsComponent } from '../../shared/icons/icons.component';
 
 @Component({
   selector: 'li[navItem]',
+  standalone: true,
   imports: [RouterLink, RouterLinkActive, IconsComponent],
   templateUrl: './nav-item.component.html',
   styleUrl: './nav-item.component.scss',

@@ -2,7 +2,7 @@ import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { IconsComponent } from '../../shared/icons/icons.component';
-import { SiteBlueprint } from '../Siteblueprint';
+import { SiteBlueprint } from '../SiteBlueprint';
 
 const characters = [
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',

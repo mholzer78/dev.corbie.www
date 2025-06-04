@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { SiteBlueprint } from '../Siteblueprint';
+import { SiteBlueprint } from '../SiteBlueprint';
 import { IconsComponent } from '../../shared/icons/icons.component';
 
 @Component({

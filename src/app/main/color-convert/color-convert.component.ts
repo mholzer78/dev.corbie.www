@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { SiteBlueprint } from '../Siteblueprint';
+import { SiteBlueprint } from '../SiteBlueprint';
 import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ColorConvertService } from './color-convert.service';

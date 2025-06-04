@@ -30,7 +30,7 @@ export class LocalStorageService {
   constructor() {
     let browserStorage = localStorage.getItem('codecorbie') ?? null;
     if (browserStorage) {
-      this.storage = JSON.parse(browserStorage);
+      this.storage = {...this.storage, ...JSON.parse(browserStorage)};
     }
   }
 
@@ -45,6 +45,7 @@ export class LocalStorageService {
       | 'loremIpsum'
       | 'loremImage'
   ) {
+    console.log(key);
     if (key) {
       return this.storage[key];
     } else {

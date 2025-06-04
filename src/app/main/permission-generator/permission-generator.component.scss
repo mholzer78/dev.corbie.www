@@ -3,6 +3,10 @@
 @include input.text;
 @include input.checkbox;
 
+.column {
+  padding-block: 0.25rem;
+}
+
 div.box {
   margin-inline: auto;
   max-width: 550px;
