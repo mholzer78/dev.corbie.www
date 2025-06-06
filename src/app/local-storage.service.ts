@@ -45,7 +45,6 @@ export class LocalStorageService {
       | 'loremIpsum'
       | 'loremImage'
   ) {
-    console.log(key);
     if (key) {
       return this.storage[key];
     } else {
