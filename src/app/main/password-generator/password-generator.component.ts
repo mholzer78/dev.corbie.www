@@ -64,9 +64,15 @@ export class PasswordGeneratorComponent
     const charactersLength = threshold.length;
     const array = new Uint32Array(this.length());
     self.crypto.getRandomValues(array);
+    let lastIndex = -1;
     array.forEach(random => {
       let randomArray = random.toString().split('');
-      result += threshold.charAt(Math.floor(parseInt(randomArray[randomArray.length -1]) / 10 * charactersLength));
+      let index = parseInt(randomArray[randomArray.length - 1]);
+      if (index === lastIndex) {
+        index = parseInt(randomArray[randomArray.length - 2])
+      }
+      result += threshold.charAt(Math.floor(index / 10 * charactersLength));
+      lastIndex = index;
     });
 
     return result;
