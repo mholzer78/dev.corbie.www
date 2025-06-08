@@ -8,6 +8,7 @@
         <div>
           <input
             #inputHEX
+            id="hex"
             type="text"
             maxlength="7"
             size="6"
@@ -120,11 +121,14 @@
   <div class="column half">
     <div class="box">
       <div class="title">
-        <div class="inner">Color Name</div>
+        <div class="inner">
+          <label for="inputName"> Color Name </label>
+        </div>
       </div>
       <div class="interaction">
         <div>
           <select
+            id="inputName"
             #inputName
             class="corbieSelect"
             [(ngModel)]="colorName"

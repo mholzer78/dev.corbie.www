@@ -66,13 +66,24 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://codecorbie.com)
 
-Some smart words TBD
+I've started this project with one thought in my mind. I thought there are so many pages with usefull tools but not one that provides more then one different tools. Many years passed, many ideas were scrapped but by the time of writing exactly 5000 days ago i registered the domain codecorbie.com. And started to take it more serious. It started with a HEX2RGB and RGB2HEX converter and with some pride I'd say I've come a long way since then.
+
+Every now and then I stumble over a task that I think I could provide a tool for. So codecorbie will grow bigger over time.
+
+Over time the page served another purpose aswell. Originally written in Javascript, then Typescript, then VueJS and now Angular it should also serve as a proof of what I'm able to do besides what I do professionally. I can't show you my code as it belongs to my employer, but i can show you this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-[![Angular][Angular.io]][Angular-url]
+Angular
+
+### Tested With
+
+<ul>
+  <li>Sonarcube</li>
+  <li>Lighthouse</li>
+</ul>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
