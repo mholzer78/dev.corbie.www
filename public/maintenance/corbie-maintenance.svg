@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 640">
+  <circle
+    id="head"
+    r="200"
+    cx="270"
+    cy="220"
+    style="fill:#444444;stroke:#000000;stroke-width:10" />
+  <circle
+    id="body"
+    r="250"
+    cx="270"
+    cy="370"
+    style="fill:#444444;stroke:#000000;stroke-width:10" />
+</svg>
