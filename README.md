@@ -81,7 +81,7 @@ Angular
 ### Tested With
 
 <ul>
-  <li>Sonarcube</li>
+  <li>Sonarqube</li>
   <li>Lighthouse</li>
 </ul>
 

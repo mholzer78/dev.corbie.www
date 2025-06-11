@@ -1,20 +1,3 @@
-/* unvisited link */
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
-  display: flex;
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
-  &.active {
-    color: var(--sec-fg-color);
-  }
-  &:hover app-icons {
-    color: var(--sec-fg-color);
-  }
-}
 span {
   margin-left: 1rem;
 }

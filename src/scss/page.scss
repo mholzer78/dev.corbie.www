@@ -5,6 +5,22 @@
   .mb5 {
     margin-bottom: 0.5rem;
   }
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    &.active {
+      color: var(--sec-fg-color);
+    }
+    &:hover app-icons {
+      color: var(--sec-fg-color);
+    }
+  }
   .link {
     cursor: pointer;
   }

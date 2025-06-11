@@ -6,6 +6,7 @@ import { PermissionGeneratorComponent } from './main/permission-generator/permis
 import { ChangeCaseComponent } from './main/change-case/change-case.component';
 import { LoremIpsumComponent } from './main/lorem-ipsum/lorem-ipsum.component';
 import { LoremImageComponent } from './main/lorem-image/lorem-image.component';
+import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Home' },
@@ -15,5 +16,5 @@ export const routes: Routes = [
   { path: 'change-case', component: ChangeCaseComponent, title:'Change Case' },
   { path: 'lorem-ipsum', component: LoremIpsumComponent, title:'Lorem Ipsum' },
   { path: 'lorem-image', component: LoremImageComponent, title:'Lorem Image' },
-  //  { path: '**', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent, title:'HTTP404' },
 ];

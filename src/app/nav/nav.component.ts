@@ -17,7 +17,7 @@ export class NavComponent implements OnInit, OnDestroy{
 
   showText = true;
   darkMode = true;
-  pages = routes;
+  pages = routes.filter((route) => !route.path!.startsWith('**'));
 
   ngOnInit(): void {
     this.showText = this.localStorageService.getProp('main').showText;

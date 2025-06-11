@@ -4,6 +4,7 @@ import { NavComponent } from './nav/nav.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [NavComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -14,7 +15,7 @@ import { NavComponent } from './nav/nav.component';
 export class AppComponent implements OnInit {
   test = 'darkMode'
   darkmode = signal(true);
-  ngOnInit() {console.log("Hello CodeCorbie")}
+  ngOnInit() {console.debug("Hello CodeCorbie")}
 
   changeDesign(value: boolean) {
     this.darkmode.set(value);
