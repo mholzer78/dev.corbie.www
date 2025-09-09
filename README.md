@@ -32,7 +32,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mholzer78/codecorbie">
+  <a href="https://github.com/mholzer78/dev.corbie.www">
     <img src="public/assets/corbie.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -66,9 +66,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://corbie.dev)
 
-I've started this project with one thought in my mind. I thought there are so many pages with usefull tools but not one that provides more then one different tools. Many years passed, many ideas were scrapped but by the time of writing exactly 5000 days ago i registered the domain corbie.dev. And started to take it more serious. It started with a HEX2RGB and RGB2HEX converter and with some pride I'd say I've come a long way since then.
+I've started this project with one thought in my mind. I thought there are so many pages with usefull tools but not one that provides more then one different tools. Many years passed, many ideas were scrapped but in 2011 i registered the domain codecorbie.com and re-branded as corbie.dev in 2025. And started to take it more serious. It started with a HEX2RGB and RGB2HEX converter and with some pride I'd say I've come a long way since then.
 
-Every now and then I stumble over a task that I think I could provide a tool for. So codecorbie will grow bigger over time.
+Every now and then I stumble over a task that I think I could provide a tool for. So Corbie will grow bigger over time.
 
 Over time the page served another purpose aswell. Originally written in Javascript, then Typescript, then VueJS and now Angular it should also serve as a proof of what I'm able to do besides what I do professionally. I can't show you my code as it belongs to my employer, but i can show you this.
 
@@ -90,7 +90,7 @@ Angular
 <!-- CONTACT -->
 ## Contact
 
-Michael Holzer - [@linkedin_handle][linkedin-url] - michael@die-holzers.at
+Michael Holzer - [@linkedin][linkedin-url] - michael@die-holzers.at
 
 Project Link: [https://corbie.dev](https://corbie.dev)
 
