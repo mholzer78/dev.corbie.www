@@ -26,7 +26,6 @@
   }
   .flex {
     display: flex;
-    align-items: center;
   }
   .sr-only {
     position: absolute;
@@ -57,7 +56,7 @@
   .column {
     flex: 100%;
     max-width: 100%;
-    margin: auto;
+    margin: 0;
     &.half {
       flex: 50%;
     }

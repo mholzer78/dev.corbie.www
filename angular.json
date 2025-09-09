@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "codecorbie": {
+    "dev.corbie.www": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/codecorbie",
+            "outputPath": "dist/dev.corbie.www",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "codecorbie:build:production"
+              "buildTarget": "dev.corbie.www:build:production"
             },
             "development": {
-              "buildTarget": "codecorbie:build:development"
+              "buildTarget": "dev.corbie.www:build:development"
             }
           },
           "defaultConfiguration": "development",

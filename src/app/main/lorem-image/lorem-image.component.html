@@ -1,97 +1,111 @@
-<div class="row flex">
-  <div class="column auto">
-    <div class="box preview">
-      <div class="title">
-        <div class="inner">Preview</div>
-      </div>
-      <div class="interaction">
-        <div class="imagePreview">
-          <canvas id="canvasPreview" width="400" height="200"></canvas>
+<div class="row">
+  <div class="flex">
+    <div class="column auto">
+      <div class="box preview">
+        <div class="title">
+          <div class="inner">Preview</div>
+        </div>
+        <div class="interaction">
+          <div class="imagePreview">
+            <canvas id="canvasPreview" width="400" height="200"></canvas>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="column auto">
-    <div class="box auto">
-      <div class="title">
-        <div class="inner">Options</div>
-      </div>
-      <div class="interaction">
-        <div class="mb5">
-          <label for="inputHEX">Color: </label>
-          <input
-            id="inputHEX"
-            #inputHEX
-            type="text"
-            maxlength="7"
-            size="7"
-            placeholder="#000000"
-            [value]="color()"
-            (change)="changeColorHandler($event)"
-          />
-          <input
-            type="color"
-            id="colorPicker"
-            name="colorPicker"
-            [value]="colorPicker()"
-            (change)="changeColorHandler($event)"
-          />
+    <div class="column auto">
+      <div class="box auto">
+        <div class="title">
+          <div class="inner">Options</div>
         </div>
-        <div class="mb5">
-          <label for="inputWidth">Width:</label>
-          <input
-            id="inputWidth"
-            type="number"
-            maxlength="3"
-            size="3"
-            placeholder="0"
-            min="100"
-            max="3840"
-            [(ngModel)]="width"
-            (change)="updateCanvas()"
-          />
-        </div>
-        <div class="mb5">
-          <input
-            id="sliderWidth"
-            type="range"
-            min="100"
-            max="3840"
-            class="slider"
-            id="width"
-            [(ngModel)]="width"
-            (change)="updateCanvas()"
-          />
-        </div>
-        <div class="mb5">
-          <label for="inputHeight">Height:</label>
-          <input
-            id="inputHeight"
-            type="number"
-            maxlength="3"
-            size="3"
-            placeholder="0"
-            min="100"
-            max="2160"
-            [(ngModel)]="height"
-            (change)="updateCanvas()"
-          />
-        </div>
-        <div class="mb5">
-          <input
-            id="sliderHeight"
-            type="range"
-            min="100"
-            max="2160"
-            class="slider"
-            id="height"
-            [(ngModel)]="height"
-            (change)="updateCanvas()"
-          />
-        </div>
-        <div class="iconWrapper mb5 link" (keypress)="download()" (click)="download()">
-          Download:
-          <app-icons image="download" width="40" height="40" />
+        <div class="interaction">
+          <div class="mb5">
+            <label for="inputHEX">Color: </label>
+            <input
+              id="inputHEX"
+              #inputHEX
+              type="text"
+              maxlength="7"
+              size="7"
+              placeholder="#000000"
+              [value]="color()"
+              (change)="changeColorHandler($event)"
+            />
+            <input
+              type="color"
+              id="colorPicker"
+              name="colorPicker"
+              [value]="colorPicker()"
+              (change)="changeColorHandler($event)"
+            />
+          </div>
+          <div class="mb5">
+            <label for="inputWidth">Width:</label>
+            <input
+              id="inputWidth"
+              type="number"
+              maxlength="3"
+              size="3"
+              placeholder="0"
+              min="100"
+              max="3840"
+              [(ngModel)]="width"
+              (change)="updateCanvas()"
+            />
+          </div>
+          <div class="mb5">
+            <input
+              id="sliderWidth"
+              type="range"
+              min="100"
+              max="3840"
+              class="slider"
+              id="width"
+              [(ngModel)]="width"
+              (change)="updateCanvas()"
+            />
+          </div>
+          <div class="mb5">
+            <label for="inputHeight">Height:</label>
+            <input
+              id="inputHeight"
+              type="number"
+              maxlength="3"
+              size="3"
+              placeholder="0"
+              min="100"
+              max="2160"
+              [(ngModel)]="height"
+              (change)="updateCanvas()"
+            />
+          </div>
+          <div class="mb5">
+            <input
+              id="sliderHeight"
+              type="range"
+              min="100"
+              max="2160"
+              class="slider"
+              id="height"
+              [(ngModel)]="height"
+              (change)="updateCanvas()"
+            />
+          </div>
+          <div
+            class="iconWrapper mb5 link"
+            (keypress)="download()"
+            (click)="download()"
+          >
+            Download:
+            <app-icons image="download" width="40" height="40" />
+          </div>
+          <div class="mb5">
+            Link for direct access:
+            <app-clipboard
+              class="ml5"
+              title="Link"
+              [value]="link()"
+            />
+          </div>
         </div>
       </div>
     </div>

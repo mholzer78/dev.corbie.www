@@ -1,13 +1,14 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SiteBlueprint } from '../SiteBlueprint';
+import { ClipboardComponent } from '../../shared/clipboard/clipboard.component';
 import { IconsComponent } from '../../shared/icons/icons.component';
 
 @Component({
   selector: 'section[loremImage]',
   standalone: true,
-  imports: [FormsModule, IconsComponent],
+  imports: [FormsModule, ClipboardComponent, IconsComponent],
   templateUrl: './lorem-image.component.html',
   styleUrl: './lorem-image.component.scss',
 })
@@ -19,6 +20,9 @@ export class LoremImageComponent
   colorPicker = signal('#000000');
   width = signal(400);
   height = signal(200);
+  link = computed(() => {
+    return "https://api.corbie.dev/loremimage/" + this.width() + "/" + this.height() + "/" + this.color().substring(1)
+  })
 
   ngOnInit(): void {
     let storage = this.getStorage('loremImage');
@@ -41,6 +45,10 @@ export class LoremImageComponent
     });
   }
 
+  updateLink() {
+
+  }
+
   changeColorHandler(event: Event): void {
     let newColor = (event.target as HTMLInputElement).value;
     let regex = /^#[0-9A-F]{6}$/i;
@@ -52,6 +60,7 @@ export class LoremImageComponent
   }
   updateCanvas() {
     this.store2storage();
+    this.updateLink();
     let colorArray = this.hex2rgb(this.color());
     let textColor = 'white';
 
@@ -155,7 +164,7 @@ export class LoremImageComponent
         this.height().toString() +
         '_' +
         this.color().slice(1) +
-        '_codecorbie'
+        '_corbie'
     );
     linkEl.click();
   }

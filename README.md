@@ -36,7 +36,7 @@
     <img src="public/assets/corbie.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">codecorbie.com</h3>
+<h3 align="center">corbie.dev</h3>
 
   <p align="center">
     developers best buddy
@@ -64,9 +64,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://codecorbie.com)
+[![Product Name Screen Shot][product-screenshot]](https://corbie.dev)
 
-I've started this project with one thought in my mind. I thought there are so many pages with usefull tools but not one that provides more then one different tools. Many years passed, many ideas were scrapped but by the time of writing exactly 5000 days ago i registered the domain codecorbie.com. And started to take it more serious. It started with a HEX2RGB and RGB2HEX converter and with some pride I'd say I've come a long way since then.
+I've started this project with one thought in my mind. I thought there are so many pages with usefull tools but not one that provides more then one different tools. Many years passed, many ideas were scrapped but by the time of writing exactly 5000 days ago i registered the domain corbie.dev. And started to take it more serious. It started with a HEX2RGB and RGB2HEX converter and with some pride I'd say I've come a long way since then.
 
 Every now and then I stumble over a task that I think I could provide a tool for. So codecorbie will grow bigger over time.
 
@@ -92,7 +92,7 @@ Angular
 
 Michael Holzer - [@linkedin_handle][linkedin-url] - michael@die-holzers.at
 
-Project Link: [https://codecorbie.com](https://codecorbie.com)
+Project Link: [https://corbie.dev](https://corbie.dev)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

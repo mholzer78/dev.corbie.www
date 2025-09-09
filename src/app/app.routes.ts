@@ -9,7 +9,7 @@ import { LoremImageComponent } from './main/lorem-image/lorem-image.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'Home' },
+  { path: '', component: HomeComponent, title: 'corbie.dev' },
   { path: 'color-convert', component: ColorConvertComponent, title:'Color Convert' },
   { path: 'password-generator', component: PasswordGeneratorComponent, title:'Password Generator' },
   { path: 'permission-generator', component: PermissionGeneratorComponent, title:'Permission Generator' },

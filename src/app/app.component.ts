@@ -15,7 +15,7 @@ import { NavComponent } from './nav/nav.component';
 export class AppComponent implements OnInit {
   test = 'darkMode'
   darkmode = signal(true);
-  ngOnInit() {console.debug("Hello CodeCorbie")}
+  ngOnInit() {console.debug("Hello Corbie")}
 
   changeDesign(value: boolean) {
     this.darkmode.set(value);

@@ -28,7 +28,7 @@ export class LocalStorageService {
   };
   
   constructor() {
-    let browserStorage = localStorage.getItem('codecorbie') ?? null;
+    let browserStorage = localStorage.getItem('corbie') ?? null;
     if (browserStorage) {
       this.storage = {...this.storage, ...JSON.parse(browserStorage)};
     }
@@ -66,6 +66,6 @@ export class LocalStorageService {
     let tempStorage = { ...this.storage };
     tempStorage[key] = value;
     this.storage = tempStorage;
-    localStorage.setItem('codecorbie', JSON.stringify(tempStorage))
+    localStorage.setItem('corbie', JSON.stringify(tempStorage))
   }
 }
