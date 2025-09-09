@@ -45,10 +45,6 @@ export class LoremImageComponent
     });
   }
 
-  updateLink() {
-
-  }
-
   changeColorHandler(event: Event): void {
     let newColor = (event.target as HTMLInputElement).value;
     let regex = /^#[0-9A-F]{6}$/i;
@@ -60,7 +56,6 @@ export class LoremImageComponent
   }
   updateCanvas() {
     this.store2storage();
-    this.updateLink();
     let colorArray = this.hex2rgb(this.color());
     let textColor = 'white';
 
